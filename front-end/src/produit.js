@@ -1,16 +1,25 @@
 //---------affichage produit page PRODUIT via local storage depuis clic sur lien produit ----------//
+
 let nameP = document.getElementById("name")
 let descriptionP = document.getElementById("description")
 let priceP = document.getElementById("price")
 let imageP = document.getElementById("image")
+let lense1P = document.getElementById("optic1")
+let lense2P = document.getElementById("optic2")
 
-nameP.textContent = localStorage.getItem("name")
-descriptionP.textContent = localStorage.getItem("des")
-priceP.textContent = localStorage.getItem("price")
-var url = localStorage.getItem ("image")
-imageP.src = url
-imageP.style.height = "50px"
-imageP.style.width = "50px"
+objBackup = JSON.parse(localStorage["panierBackup"])
 
-//localStorage.clear()
-console.log(localStorage)
+nameP.textContent = objBackup.name
+descriptionP.textContent = objBackup.description
+priceP.textContent = objBackup.price
+imageP.src = objBackup.photo
+lense1P.textContent = objBackup.lense1
+lense2P.textContent = objBackup.lense2
+
+let panierBackup = objBackup
+let addPanier =  document.getElementById("button")
+addPanier.addEventListener("click", function(){
+    localStorage.setItem("panierBackup",JSON.stringify(panierBackup))
+    console.log(localStorage)
+})
+

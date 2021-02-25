@@ -123,12 +123,6 @@ header {
   height: 200px;
 }
 
-body {
-  background-image: url("../../maquette/Image Texture marbre.png");
-  background-attachment: fixed;
-  margin: auto;
-}
-
 main {
   margin-top: 10%;
   margin-left: 5%;
@@ -231,6 +225,61 @@ footer p {
 
 #footer-icon-fb {
   width: 80%;
+}
+
+main {
+  padding-bottom: 15%;
+}
+main .item-link {
+  text-decoration: none;
+}
+main .item-link img {
+  margin-right: 11%;
+  width: 20%;
+}
+main .item-link #description {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  font-family: Roboto_Mono;
+  font-weight: normal;
+  font-style: normal;
+  color: gray;
+}
+main .item-link #price {
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: AmericanTypewriter;
+  color: black;
+}
+main .item-link a {
+  text-decoration: none;
+}
+main .item-link #name {
+  font-family: AmericanTypewriter;
+  font-weight: lighter;
+  font-size: 1.3em;
+  color: black;
+}
+main .camera-name-description {
+  position: relative;
+}
+main .camera-name-description form {
+  position: absolute;
+  left: 26%;
+  top: 12%;
+}
+
+header #cart {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  right: 30%;
+  width: 30%;
+}
+header #logo {
+  margin-left: -21%;
 }
 
 /*# sourceMappingURL=style.css.map */

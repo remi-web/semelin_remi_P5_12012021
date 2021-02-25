@@ -13,3 +13,34 @@
     display: flex;
     justify-content: flex-end;
 }
+/*
+@mixin produit-style{
+    .description{
+        display: flex;
+        width: 50%;
+        flex-wrap: wrap;
+        @include police($police);
+        color: gray
+    }
+
+    .price{
+        margin-right: 10%;
+        display: flex;
+        flex-direction: column-reverse;
+        font-family: AmericanTypewriter;
+        color: black;
+
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    .name{
+        font-family: AmericanTypewriter;
+        font-weight: lighter;
+        font-size: 1.3em;
+        color: black
+
+    }
+}
+*/

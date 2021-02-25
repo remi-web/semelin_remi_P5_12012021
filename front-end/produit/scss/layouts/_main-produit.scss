@@ -1,18 +1,18 @@
 main{
-    margin-top: 10%;
-    margin-left: 5%;
-}
 
-.camera{
-    margin-bottom: 10%;
+    padding-bottom: 15%;
+
+    .item-link{
+
+        text-decoration: none;
 
         img{
-            margin-right: 3%;
+            margin-right: 11%;
             width: 20%;
         }
         
 
-        .description{
+        #description{
             display: flex;
             width: 50%;
             flex-wrap: wrap;
@@ -20,7 +20,7 @@ main{
             color: gray
         }
 
-        .price{
+        #price{
             margin-right: 10%;
             display: flex;
             flex-direction: column-reverse;
@@ -32,15 +32,23 @@ main{
         a{
             text-decoration: none;
         }
-        .name{
+        #name{
             font-family: AmericanTypewriter;
             font-weight: lighter;
             font-size: 1.3em;
             color: black
 
         }
+    }
+
+    .camera-name-description{
+        position: relative;
+    
+        form{
+            position: absolute;
+            left: 26%;
+            top: 12%;
+    }
 }
 
-.item-link{
-    display: flex;
 }

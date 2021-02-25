@@ -1,0 +1,205 @@
+/*nom du fichier*/
+@font-face {
+  font-family: Roboto_Mono;
+  src: url("polices/Roboto_Mono/RobotoMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: Roboto_Mono;
+  src: url("polices/Roboto_Mono/AmericanTypewriter-Medium-Bold-Regular.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: AppleChanceryRegular;
+  src: url("polices/AppleChanceryRegular/AppleChanceryRegular.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  src: url("polices/AmericanTypeWriter/AmericanTypewriterRegular.ttf");
+  font-family: AmericanTypewriter;
+  font-style: normal;
+  font-weight: normal;
+}
+html {
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  margin-left: 5%;
+}
+#logo h1 {
+  margin-bottom: 0%;
+  font-size: 2.3em;
+  margin-top: 0%;
+  font-family: Roboto_Mono;
+  font-weight: normal;
+  font-style: normal;
+}
+#logo h2 {
+  margin-top: 0%;
+  font-size: 0.8em;
+}
+
+#header-nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+#header-nav ul li {
+  list-style: none;
+  width: 10%;
+}
+
+#user, #caddy {
+  width: 30%;
+}
+
+#search {
+  width: 25%;
+}
+
+#baner-txt {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#baner-txt::before {
+  content: url("../../maquette/Image Texture bois.png");
+  background-color: #efd6bc;
+  position: absolute;
+  z-index: -1;
+  height: 100px;
+}
+#baner-txt h3 {
+  margin: auto;
+  font-family: AppleChanceryRegular;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.5em;
+  color: #3D3D3D;
+}
+#baner-img img {
+  width: 100%;
+  height: 200px;
+}
+
+body {
+  background-image: url("../../maquette/Image Texture marbre.png");
+  background-attachment: fixed;
+  margin: auto;
+}
+
+main {
+  margin-top: 10%;
+  margin-left: 5%;
+}
+
+.camera {
+  margin-bottom: 10%;
+}
+.camera img {
+  margin-right: 3%;
+  width: 20%;
+}
+.camera .description {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  font-family: Roboto_Mono;
+  font-weight: normal;
+  font-style: normal;
+  color: gray;
+}
+.camera .price {
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: AmericanTypewriter;
+  color: black;
+}
+.camera a {
+  text-decoration: none;
+}
+.camera .name {
+  font-family: AmericanTypewriter;
+  font-weight: lighter;
+  font-size: 1.3em;
+  color: black;
+}
+
+.item-link {
+  display: flex;
+}
+
+footer {
+  background-image: url("../../maquette/Image Texture bois.png");
+  background-color: #efd6bc;
+  position: relative;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+footer h3 {
+  margin-bottom: 0%;
+  font-size: 1.7em;
+  margin-top: 0%;
+}
+footer h4 {
+  margin-top: 0%;
+  font-size: 0.7em;
+}
+footer li {
+  list-style: none;
+  margin-left: 10%;
+}
+footer #contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  padding-bottom: 5%;
+}
+footer p {
+  margin-bottom: 0%;
+}
+
+#footer-logo {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+}
+#footer-nav {
+  margin-left: 30%;
+  margin-right: 25%;
+  margin-top: 4%;
+}
+#footer-ul {
+  display: flex;
+  padding-left: 0%;
+}
+#footer-li {
+  margin-right: 10%;
+}
+
+.footer-icon {
+  width: 30%;
+}
+
+#footer-icon-fb {
+  width: 80%;
+}
+
+/*# sourceMappingURL=style.css.map */

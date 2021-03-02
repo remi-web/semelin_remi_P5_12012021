@@ -1,0 +1,41 @@
+main{
+    padding-bottom: 30%;
+    position: relative;
+
+    img{
+        margin-right: 8%;
+        width: 15%;
+        box-shadow: 6px 3px 12px 1px grey;
+    }
+
+ 
+    .item-link{
+        display: flex;
+        width: 70%;
+        text-decoration: none;
+        margin: 5%;
+    }
+
+    .price{
+        position: absolute;
+        right: 10%;
+        font-family: AmericanTypewriter;
+        color: black;
+    }
+
+    .name{
+        font-family: AmericanTypewriter;
+        color: black;
+
+    }
+    .description{
+        margin-left: 5%;
+    }
+}
+    #total{
+        position: absolute;
+        right: 10%;
+        bottom: 20%;
+        @include police ($police)
+    }
+

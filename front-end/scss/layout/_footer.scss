@@ -1,7 +1,7 @@
 footer{
     @include wood-background;
     position: relative;
-    height: 70%;
+    height: 60%;
     width: 100%;
     @include flex-columm;
    
@@ -41,7 +41,7 @@ footer{
     &-nav{
     margin-left: 30%;
     margin-right: 25%;
-    margin-top: 4%;
+    margin-top: 0%;
     }
 
     &-ul{

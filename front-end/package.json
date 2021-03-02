@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "sass": "sass --watch ./scss/main.scss:css/style.css",
-    "sass1": "sass --watch ./produit/scss/main.scss:produit/css/style.css"
+    "sass1": "sass --watch ./produit/scss/main.scss:produit/css/style.css",
+    "sass2": "sass --watch ./panier/scss/main.scss:panier/css/style.css"
   },
   "author": "remi",
   "license": "ISC",

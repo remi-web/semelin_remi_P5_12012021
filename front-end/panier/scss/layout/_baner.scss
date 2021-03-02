@@ -1,0 +1,23 @@
+#baner{
+
+    &-txt{
+        height: 100px;
+        @include flex-columm;
+
+        &::before{
+            content: url("../../../maquette/Image Texture bois 100.png");
+            background-color: #efd6bc;
+            position: absolute;
+            z-index: -1;
+            height: 100px;
+            width: 100%;
+        }
+
+        h3{
+            margin: auto;
+            @include police($police-bis);
+            font-size: 1.5em;
+            color: #3D3D3D;
+        }
+    }
+}

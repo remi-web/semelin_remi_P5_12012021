@@ -15,10 +15,11 @@ request.onload = function() {
         console.log(camera)
 
 //-------affichage des items page acceuil------------//
+
 for (var i=0; i<5; i++){
     name[i].textContent = camera[i].name
     description[i].textContent =  camera[i].description
-    price[i].textContent = camera[i].price ///1000 + "0" + " euros"
+    price[i].innerHTML = camera[i].price /1000 + "0" + " €"
     var url = camera[i].imageUrl
     image[i].src = url
     }

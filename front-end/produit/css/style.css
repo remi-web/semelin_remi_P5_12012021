@@ -23,37 +23,6 @@
   font-style: normal;
   font-weight: normal;
 }
-/*
-@mixin produit-style{
-    .description{
-        display: flex;
-        width: 50%;
-        flex-wrap: wrap;
-        @include police($police);
-        color: gray
-    }
-
-    .price{
-        margin-right: 10%;
-        display: flex;
-        flex-direction: column-reverse;
-        font-family: AmericanTypewriter;
-        color: black;
-
-    }
-
-    a{
-        text-decoration: none;
-    }
-    .name{
-        font-family: AmericanTypewriter;
-        font-weight: lighter;
-        font-size: 1.3em;
-        color: black
-
-    }
-}
-*/
 html {
   overflow-x: hidden;
 }
@@ -87,9 +56,22 @@ header {
   list-style: none;
   width: 10%;
 }
+#header-nav ul li .article-number {
+  text-decoration: none;
+  font-size: 1.3em;
+  margin-top: 0.5%;
+  font-family: AmericanTypewriter;
+  position: absolute;
+  top: 4%;
+  color: brown;
+}
 
-#user, #caddy {
+#user {
   width: 30%;
+}
+
+#caddy {
+  width: 40%;
 }
 
 #search {
@@ -150,6 +132,7 @@ main {
   flex-direction: column-reverse;
   font-family: AmericanTypewriter;
   color: black;
+  width: 40%;
 }
 .camera a {
   text-decoration: none;
@@ -296,17 +279,6 @@ body {
 
 body {
   background-image: url("../../../maquette/Image Texture marbre.png");
-}
-
-header #cart {
-  display: flex;
-  justify-content: space-around;
-  position: absolute;
-  right: 30%;
-  width: 30%;
-}
-header #logo {
-  margin-right: 30%;
 }
 
 /*# sourceMappingURL=style.css.map */

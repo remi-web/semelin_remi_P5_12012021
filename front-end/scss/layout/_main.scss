@@ -9,6 +9,7 @@ main{
         img{
             margin-right: 3%;
             width: 20%;
+            box-shadow: 6px 3px 12px 1px grey;
         }
         
 
@@ -16,7 +17,7 @@ main{
             display: flex;
             width: 50%;
             flex-wrap: wrap;
-            @include police($police);
+            font-family: AmericanTypewriter;
             color: gray
         }
 

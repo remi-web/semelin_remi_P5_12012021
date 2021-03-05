@@ -1,57 +1,55 @@
-//---------variable page produit------------------//
-let nameP = document.getElementById("name")
-let descriptionP = document.getElementById("description")
-let priceP = document.getElementById("price")
-let imageP = document.getElementById("image")
-let lense1P = document.getElementById("optic1")
-let lense2P = document.getElementById("optic2")
-let pricePNum = 0
+
 let idP = 0
 //--------requete pour récupérer l'article cliqué par son ID--------//
 let idBackup = JSON.parse(localStorage.getItem("idProduitSelect"))
 
 const promise = fetch( "http://localhost:3000/api/cameras/" + idBackup)
-    promise
         .then ((response) => {
             console.log(response)
             const produitSelect = response.json()
             produitSelect.then((pS) =>{
-                console.log(pS)
-                nameP.textContent = pS.name
-                lense1P.textContent = pS.lenses[0]
-                lense2P.textContent = pS.lenses[1]
-                descriptionP.textContent= pS.description
-                pricePNum = pS.price / 1000
-                priceP.textContent = pricePNum + "0" + " €"
-                var url = pS.imageUrl
-                imageP.src = url
-                idP = pS._id
+                let insertHtml = document.querySelector('main')
+                let itemSelect = document.createElement('div')  
+                itemSelect.innerHTML = 
+                    `<div id="camera">
+                        <form>
+                            <label for="optic-choice"></label>
+                                <select id="optic-choose" name="optic-choose">
+                                    <option value= "number" id="optic1">${pS.lenses[0]}</option>
+                                    <option vale= "number" id="optic2">${pS.lenses[1]}</option>
+                                </select>
+                        </form>
+                        <a class="item-link" href="produit.html">
+                            <img id="image" src=${pS.imageUrl}>
+                            <div class="camera-name-description">
+                                <p id="name">${pS.name}</p>
+                                <p id="description">${pS.description}</p>
+                                <p id="price">${pS.price}</p>
+                            </div>
+                        </a>
+                        <button id="button">Ajouter au panier</button>
+                    </div>`
+                insertHtml.appendChild(itemSelect)
             })
-
         })
         .catch ((err) => {
             console.log(err);
-        })   
+        }
+    ) 
 
-//var option = document.getElementById("optic-choose")
-//const opticChoice = option.text
-//var text = list.options[list.selectedIndex]
-//console.log(opticChoice)
-let addPanier =  document.getElementById("button")
 
 //-----------ajout au panier-------------------//
+let addPanier =  document.getElementById("button")
 addPanier.addEventListener('click', function(){
-event.preventDefault()
-
+//event.preventDefault()
     let panier = {
         nom: nameP.textContent, 
         description: descriptionP.textContent,
         price: pricePNum,
         image: imageP.src,
         id: idP
-        //lense: text
-         
     };
+
     let idPanierStorage = panier.id
     console.log(idPanierStorage)
 
@@ -67,7 +65,7 @@ event.preventDefault()
             window.location.href = "../index.html"
         }
     }
-
+   
     if(produitLocalStorage){
         console.log(Boolean(produitLocalStorage))
         produitLocalStorage.push(panier);
@@ -82,7 +80,7 @@ event.preventDefault()
         console.log(produitLocalStorage)
         popupConfirmation()
 
-    }
-    
+    }  
 })
+
 console.log(localStorage)

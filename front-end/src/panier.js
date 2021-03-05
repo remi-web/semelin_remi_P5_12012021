@@ -49,9 +49,9 @@ for (var i = 0; i < backup.length; i++){
     let idDelete = []
 
     buttonDeleteItem[i].addEventListener('click', function(){
-        var conf = window.confirm("etes vous sur de voulir supprimer cet article ?")
+        var conf = window.confirm("Etes vous sur de vouloir supprimer cet article ?")
         
-        if(conf = true){
+        if(conf){
             idDelete.push(objId.id)
             backupFilter = backup.filter((tabF) => tabF.id != idDelete )
             localStorage.setItem("produit", JSON.stringify(backupFilter))

@@ -36,16 +36,16 @@ main{
         right: 3%;
         width: 5%;
         height: 5%;
-        font-family: AppleChanceryRegular;
+        font-family: AppleChancery;
         font-size: 0.6em ;
-        padding: auto;
+        margin-top: 1.5%;
     }
 }
     #total{
         position: absolute;
         right: 10%;
         bottom: 20%;
-        @include police ($police)
+        font-family: RobotoMono;
 
     }
 

@@ -19,7 +19,7 @@ main{
             display: flex;
             width: 50%;
             flex-wrap: wrap;
-            @include police($police);
+            font-family: RobotoMono;
             color: gray
         }
 

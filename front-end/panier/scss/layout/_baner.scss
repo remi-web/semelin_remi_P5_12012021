@@ -13,9 +13,8 @@
             width: 100%;
         }
 
-        h3{
-            margin: auto;
-            @include police($police-bis);
+        #panier-title{
+            font-family: AppleChanceryRegular;
             font-size: 1.5em;
             color: #3D3D3D;
         }

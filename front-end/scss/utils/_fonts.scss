@@ -1,33 +1,26 @@
-$police:/*nom du dossier*/Roboto_Mono; $weigth:normal; $style:normal; $file:RobotoMono-Regular;/*nom du fichier*/
-$police-bold: AmericanTypewriter; $bold-weigth:bold; $bold-style:normal; $bold-file: AmericanTypewriter-Medium-Bold-Regular;
-$police-bis:/*nom du dossier*/ AppleChanceryRegular; $bis-weigth:bold; $bis-style:normal; $bis-file:/*nom du fichier*/AppleChanceryRegular;
 
-$font-face:($police:(file:$file, family:$police, weigth:$weigth, style:$style),
-            $police-bold:(file:$bold-file, family:$police, weigth:$bold-weigth, style:$bold-style),
-            $police-bis:(file:$bis-file, family:$police-bis, weigth:$bis-weigth, style:$bis-style));
 
-@each $key, $value in $font-face{
-    @font-face {
-        $palette:map-get($font-face, #{$key});
-        font-family:map-get($palette, family );
-        $file:map-get($palette,file);
-        $file1:map-get($palette, family);
-        src: url('polices/#{$file1}/#{$file}.ttf') format('truetype');
-        font-weight: map-get($palette, weigth);
-        font-style: map-get($palette,  style)
-    }
-}
 
-@mixin police ($name){
-    $palette:map-get($font-face, $name );
-    font-family: map-get($palette, family);
-    font-weight: map-get($palette, weigth);
-    font-style: map-get($palette, style );
-}
 
 @font-face{
     src: url("polices/AmericanTypeWriter/AmericanTypewriterRegular.ttf");
     font-family: AmericanTypewriter;
+    font-style: normal;
+    font-weight: normal;
+
+}
+
+@font-face{
+    src: url("polices/Roboto_Mono/RobotoMono-Regular.ttf");
+    font-family: RobotoMono;
+    font-style: normal;
+    font-weight: normal;
+
+}
+
+@font-face{
+    src: url("polices/AppleChanceryRegular/AppleChanceryRegular.ttf");
+    font-family: AppleChancery;
     font-style: normal;
     font-weight: normal;
 

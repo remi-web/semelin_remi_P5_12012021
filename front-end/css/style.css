@@ -1,25 +1,18 @@
-/*nom du fichier*/
-@font-face {
-  font-family: Roboto_Mono;
-  src: url("polices/Roboto_Mono/RobotoMono-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: Roboto_Mono;
-  src: url("polices/Roboto_Mono/AmericanTypewriter-Medium-Bold-Regular.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: AppleChanceryRegular;
-  src: url("polices/AppleChanceryRegular/AppleChanceryRegular.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
 @font-face {
   src: url("polices/AmericanTypeWriter/AmericanTypewriterRegular.ttf");
   font-family: AmericanTypewriter;
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  src: url("polices/Roboto_Mono/RobotoMono-Regular.ttf");
+  font-family: RobotoMono;
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  src: url("polices/AppleChanceryRegular/AppleChanceryRegular.ttf");
+  font-family: AppleChancery;
   font-style: normal;
   font-weight: normal;
 }
@@ -36,12 +29,10 @@ header {
   margin-left: 5%;
 }
 #logo h1 {
+  font-family: RobotoMono;
   margin-bottom: 0%;
   font-size: 2.3em;
   margin-top: 0%;
-  font-family: Roboto_Mono;
-  font-weight: normal;
-  font-style: normal;
 }
 #logo h2 {
   margin-top: 0%;
@@ -66,16 +57,16 @@ header {
   color: brown;
 }
 
-#user {
-  width: 30%;
+#home {
+  width: 50%;
 }
 
 #caddy {
-  width: 40%;
+  width: 70%;
 }
 
-#search {
-  width: 25%;
+#user {
+  width: 50%;
 }
 
 #baner-txt {
@@ -94,9 +85,7 @@ header {
 }
 #baner-txt h3 {
   margin: auto;
-  font-family: AppleChanceryRegular;
-  font-weight: bold;
-  font-style: normal;
+  font-family: AppleChancery;
   font-size: 1.5em;
   color: #3D3D3D;
 }
@@ -122,14 +111,13 @@ main {
 .camera img {
   margin-right: 3%;
   width: 20%;
+  box-shadow: 6px 3px 12px 1px grey;
 }
 .camera .description {
   display: flex;
   width: 50%;
   flex-wrap: wrap;
-  font-family: Roboto_Mono;
-  font-weight: normal;
-  font-style: normal;
+  font-family: AmericanTypewriter;
   color: gray;
 }
 .camera .price {

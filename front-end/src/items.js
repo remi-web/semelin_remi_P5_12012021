@@ -1,8 +1,3 @@
-let name = document.getElementsByClassName("name")
-let description = document.getElementsByClassName("description")
-let price = document.getElementsByClassName("price")
-let image = document.getElementsByClassName("image")
-let opticChoose = document.getElementsByClassName("optic")
 
 //-------requete des items via api localhost----//
 var request = new XMLHttpRequest();
@@ -11,40 +6,45 @@ request.responseType = 'text';
 request.send();
 request.onload = function() {
     var reponse = request.response
-    var camera = JSON.parse(reponse)
-        console.log(camera)
+    var cameras = JSON.parse(reponse)
+        console.log(cameras)
 
 //-------affichage des items page acceuil------------//
-
-for (var i=0; i<5; i++){
-    name[i].textContent = camera[i].name
-    description[i].textContent =  camera[i].description
-    price[i].innerHTML = camera[i].price /1000 + "0" + " €"
-    var url = camera[i].imageUrl
-    image[i].src = url
-    }
+    for (var i = 0; i < cameras.length; i++){
+        let camerasItems = document.querySelector("main")
+        let newP = document.createElement('div'); newP.className = "camera-link"
+        newP.innerHTML =
+            `<div class="camera">
+                <a class="item-link" href="produit/produit.html">
+                    <img class="image"src=${cameras[i].imageUrl}>
+                    <div class="camera-name-description">
+                        <p class="name">${cameras[i].name}</p>
+                        <p class="description">${cameras[i].description}</p>
+                    </div>
+                    <p class="price">${cameras[i].price / 1000 + "0" + "€"}</p>
+                </a>
+                </div>`
+        camerasItems.appendChild(newP)
 
 //-----------selection de l'id en fonction de l'article cliqué-----//
-let itemLink = document.getElementsByClassName('item-link')
-let produitBackup =[]
-console.log(produitBackup)
+        let itemLink = document.getElementsByClassName('item-link')
+        let produitBackup =[]
+        console.log(produitBackup)
 
-for (var i = 0; i < 5; i++){
-    let objId = {
-        id: camera[i]._id,
-    }
+        let objId = {
+                id: cameras[i]._id,
+            }
 
-let id = []
-    if (id.length > 1) {
-        id.length = 1;
-     }
+        let id = []
+            if (id.length > 1) {
+                id.length = 1;
+            }
         
-itemLink[i].addEventListener('click', function(){
-        id.splice(0, 1)
-        id.push(objId.id)
-        localStorage.setItem("idProduitSelect", JSON.stringify(id))
-        console.log(localStorage)
+        itemLink[i].addEventListener('click', function(){
+            id.splice(0, 1)
+            id.push(objId.id)
+            localStorage.setItem("idProduitSelect", JSON.stringify(id))
+            console.log(localStorage)
         })        
     }
 }
-//localStorage.clear()

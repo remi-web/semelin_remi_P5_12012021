@@ -24,63 +24,60 @@ const promise = fetch( "http://localhost:3000/api/cameras/" + idBackup)
                             <div class="camera-name-description">
                                 <p id="name">${pS.name}</p>
                                 <p id="description">${pS.description}</p>
-                                <p id="price">${pS.price}</p>
+                                <p id="price">${pS.price / 1000 + "0" + "€"}</p>
                             </div>
                         </a>
                         <button id="button">Ajouter au panier</button>
                     </div>`
                 insertHtml.appendChild(itemSelect)
-            })
-        })
-        .catch ((err) => {
-            console.log(err);
-        }
-    ) 
-
+     
 
 //-----------ajout au panier-------------------//
-let addPanier =  document.getElementById("button")
-addPanier.addEventListener('click', function(){
-//event.preventDefault()
-    let panier = {
-        nom: nameP.textContent, 
-        description: descriptionP.textContent,
-        price: pricePNum,
-        image: imageP.src,
-        id: idP
-    };
+                let addPanier =  document.getElementById("button")
+                    addPanier.addEventListener('click', function(){
+                        let panier = {
+                        name: pS.name, 
+                        description: pS.description,
+                        price: pS.price,
+                        image: pS.imageUrl,
+                        id: pS._id
+                    }
 
-    let idPanierStorage = panier.id
-    console.log(idPanierStorage)
+                    let idPanierStorage = panier.id
 
-    let produitLocalStorage = JSON.parse(localStorage.getItem("produit"))
-    console.log(produitLocalStorage)
+                    let produitLocalStorage = JSON.parse(localStorage.getItem("produit"))
+                    console.log(produitLocalStorage)
 
-    //--------fonction popup----------//
-    const popupConfirmation = () => {
-        if(window.confirm(`${ name.textContent} a bien été ajouté au panier
-            Aller au panier OK ou revenir à l'acceuil ANNULER`)){
-            window.location.href = " ../panier/panier.html"
-        }else{
-            window.location.href = "../index.html"
-        }
+                    //--------fonction popup----------//
+                    const popupConfirmation = () => {
+                        if(window.confirm(`${ name.textContent} a bien été ajouté au panier
+                            Aller au panier OK ou revenir à l'acceuil ANNULER`)){
+                            window.location.href = " ../panier/panier.html"
+                        }else{
+                            window.location.href = "../index.html"
+                        }
+                    }
+                
+                    if(produitLocalStorage){
+                        console.log(Boolean(produitLocalStorage))
+                        produitLocalStorage.push(panier);
+                        localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
+                        popupConfirmation()
+                    }
+                    else{
+                        produitLocalStorage=[];
+                        produitLocalStorage.push(panier)
+                        localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
+                        popupConfirmation()
+
+                    }  
+                })
+            })
+         })
+        .catch ((err) => {
+        console.log(err);
     }
-   
-    if(produitLocalStorage){
-        console.log(Boolean(produitLocalStorage))
-        produitLocalStorage.push(panier);
-        localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
-        console.log(produitLocalStorage);
-        popupConfirmation()
-    }
-    else{
-        produitLocalStorage=[];
-        produitLocalStorage.push(panier)
-        localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
-        console.log(produitLocalStorage)
-        popupConfirmation()
+) 
 
-    }  
-})
 
 console.log(localStorage)

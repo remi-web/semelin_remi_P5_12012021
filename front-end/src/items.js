@@ -21,7 +21,7 @@ request.onload = function() {
                         <p class="name">${cameras[i].name}</p>
                         <p class="description">${cameras[i].description}</p>
                     </div>
-                    <p class="price">${cameras[i].price / 1000 + "0" + "€"}</p>
+                    <p class="price">${money(cameras[i].price)}</p>
                 </a>
                 </div>`
         camerasItems.appendChild(newP)
@@ -34,6 +34,7 @@ request.onload = function() {
         let objId = {
                 id: cameras[i]._id,
             }
+            console.log(objId)
 
         let id = []
             if (id.length > 1) {
@@ -47,4 +48,7 @@ request.onload = function() {
             console.log(localStorage)
         })        
     }
+}
+function money(price){
+    return price / 1000 + "0"+ "€"
 }

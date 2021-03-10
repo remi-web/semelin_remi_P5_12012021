@@ -10,7 +10,8 @@ let user = {
     mdp: document.inscription.mdp.value
 }
 
-let command = JSON.parse(localStorage.getItem("produit"))
+let command = JSON.parse(localStorage.getItem("products"))
+
 //------------verification des adresses email----------//
 email2.addEventListener("input", function(){
     if (this.value != email.value){
@@ -49,3 +50,4 @@ function commandSend (request){
         request.send(JSON.stringify(objCommand))
 }
 
+console.log(objCommand)

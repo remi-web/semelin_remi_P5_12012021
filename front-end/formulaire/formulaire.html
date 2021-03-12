@@ -8,15 +8,17 @@
 </head>
 <body>
     
-    <form method="POST" name="inscription" >
-        <input type="text" name="pseudo" placeholder="Pseudo" required><br>
-        <input type="email" name="email" placeholder="Email" id="email" required><br>
-        <input type = "email" name="email-confirmation" placeholder="Confirmation de l'email" id="email2" required><br>
-        <input type="password" name="mdp" placeholder="Mot de passe" required><br>
+    <form method="POST" name="commandForm" >
+        <input type="text" name="firstName" placeholder="First name" ><br>
+        <input type="text" name="lastName" placeholder="Last name" ><br>
+        <input type="text" name="adress" placeholder="Adresse" ><br>
+        <input type="text" name="city" placeholder="City" ><br>
+        <input type="email" name="email" placeholder="Email" id="email" ><br>
+        <input type = "email" name="emailConfirmation" placeholder="Confirmation de l'email" id="email2" ><br>
         <input type="submit" value="Inscription">
     </form>
-    <p style= "color: red"; id="erreur"></p>
-    
+    <p id = "error-text" style="color: red;"></p>    
+    <script type="text/javascript" src="../src/utils.js"></script>
     <script type="text/javascript" src="../src/form.js"></script>
 
 </body>

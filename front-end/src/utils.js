@@ -185,6 +185,7 @@ function caddyDisplay(){
     let backupCaddy = getItemProducts()
     var caddy = document.querySelector("a#caddy")
     var articleNumber = document.createElement("p");articleNumber.className = "article-number"
+
     if (backupCaddy){
         articleNumber.textContent = backupCaddy.length
         caddy.appendChild(articleNumber)
@@ -195,3 +196,84 @@ function money(price){
     return price / 1000 + "0"+ "€"
 }
 
+//------------FORM FUNCTIONS----------------//
+function inputChecking(inputs,e){
+    
+
+    for ( var i = 0; i < inputs.length; i++){
+        if(!inputs[i].value){
+            error.textContent = errorText.form
+            return false,
+            e.preventDefault()
+        }
+    else{}
+    }
+}
+function imputValidation(){
+    var inputs = document.commandForm
+    
+    let model = [
+        /[a-z]/,
+        /[a-z]/, 
+        /[0-9]{1,3}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç']+)/, 
+        /[a-zA-Zàâäéèêëïîôöùûüç']/
+    ]
+
+        for (var i = 0; i < 4; i ++){
+             if (model[i].test(inputs[i].value)){}
+             else{
+                alert(" nom, prenom, adresse ou city invalide")
+                e.preventDefault()
+                
+            }
+        }
+    
+}
+
+function postCommand(objCommand, orderId){
+    fetch( "http://localhost:3000/api/cameras/order",{
+            method: "POST",
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(objCommand)
+        })
+         
+        .then ((response) => {
+            var dataReturn = response.json()
+            .then(result => 
+            orderId.push(result.orderId))
+
+            if (response.ok){
+                alert(`Commande envoyée avec succès sous le N°: ${orderId}` )
+                console.log(orderId)
+                }
+        })
+        .catch ((err) => {
+            console.log(err);
+            window.alert(err)
+            }
+        )        
+}
+
+function emailChecking(){
+    email2.addEventListener("input", function(){
+    
+
+        if (this.value != email.value){
+            error.textContent = errorText.email
+            document.forms["commandForm"].addEventListener("submit", function(e){
+                alert("vos deux adresses email sont différentes")
+            })
+        }else{
+            error.textContent = ""
+        }
+    })
+}
+
+//---------------OBJETS------------------//
+let errorText = {
+    email: "Adresses Email différentes",
+    form: "Veuillez remplir le formulaire"
+}

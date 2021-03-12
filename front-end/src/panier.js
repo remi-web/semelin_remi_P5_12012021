@@ -1,4 +1,4 @@
-//---------récupération de l'objet envoyé ds le localstorage au clic du boutton------//
+//---------récupération de l'objet envoyé ds le localstorage----------------//
 let cartProduct = getItemProducts()
 
 //-------création et affichage des nouveaux éléments dans le DOM------------//

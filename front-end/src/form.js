@@ -1,53 +1,45 @@
-var error = document.getElementById("erreur")
+var error = document.getElementById("error-text")
 var email = document.getElementById("email")
 var email2 =document.getElementById("email2")
 
-let objCommand = []
 
-let user = {
-    pseudo: document.inscription.pseudo.value,
-    email: document.inscription.email.value,
-    mdp: document.inscription.mdp.value
-}
+//----------récupération des ID----------------------//
+let command = getItemProducts()
+let orderId = []
+let products = []
 
-let command = JSON.parse(localStorage.getItem("products"))
-
+for (var i = 0; i < command.length; i++ ){
+    let commandId = command[i].id
+    products.push(commandId)
+    }
 //------------verification des adresses email----------//
-email2.addEventListener("input", function(){
-    if (this.value != email.value){
-        error.textContent = "adresses email différentes"
-    }else{
-        error.textContent = ""
-    }
-})
-//------------verifivation des inputs--------------//
-document.forms["inscription"].addEventListener("submit", function(e){
+emailChecking()
 
+//------------verifivation des inputs------------------//
+document.commandForm.addEventListener("submit", function(e){
     var inputs = this.getElementsByTagName("input")
+    e.preventDefault()
+    inputChecking(inputs)
 
-    for (var i = 0; i < inputs.length; i++){
-        if(!inputs[i].value){
-            e.preventDefault
-            error.textContent = "veuillez renseigner le formulaire"
-            return false
-        }
- 
-    else{}
-    }
-    //------envois au serveur------------//
-    if (inputs.value = true){
-        objCommand.push(command,user)
-        localStorage.setItem("commande", JSON.stringify(objCommand))
-        commandSend
-        alert("Commande envoyé!")
+    //--------vérification des valeurs des inputs---------//
+    imputValidation(e)
 
+
+    //------envois au serveur et local storage------------//
+    if (inputs.value = true && email.value === email2.value){
+
+        contact = {
+            firstName: document.commandForm.firstName.value,
+            lastName: document.commandForm.lastName.value,
+            address: document.commandForm.adress.value,
+            city: document.commandForm.city.value,
+            email: document.commandForm.email.value,
+            }
+    
+        const objCommand = {contact,products}
+        localStorage.setItem("command", JSON.stringify(objCommand))
+
+        postCommand(objCommand, orderId)
     }
 })
-function commandSend (request){
-    return request = new XMLHttpRequest(),
-        request.open("GET", "http://localhost:3000/api/users"),
-        request.setRequestHeader("Content-Type", "application/json"),
-        request.send(JSON.stringify(objCommand))
-}
 
-console.log(objCommand)

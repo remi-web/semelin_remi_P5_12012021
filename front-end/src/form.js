@@ -17,13 +17,11 @@ emailChecking()
 
 //------------verifivation des inputs------------------//
 document.commandForm.addEventListener("submit", function(e){
+
     var inputs = this.getElementsByTagName("input")
     e.preventDefault()
     inputChecking(inputs)
-
-    //--------vérification des valeurs des inputs---------//
     imputValidation(e)
-
 
     //------envois au serveur et local storage------------//
     if (inputs.value = true && email.value === email2.value){
@@ -37,8 +35,8 @@ document.commandForm.addEventListener("submit", function(e){
             }
     
         const objCommand = {contact,products}
+        
         localStorage.setItem("command", JSON.stringify(objCommand))
-
         postCommand(objCommand, orderId)
     }
 })

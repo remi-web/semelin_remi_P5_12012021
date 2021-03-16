@@ -257,15 +257,13 @@ function postCommand(objCommand, orderId){
         )        
 }
 
-function emailChecking(){
+function emailChecking(e){
     email2.addEventListener("input", function(){
     
 
         if (this.value != email.value){
             error.textContent = errorText.email
-            document.forms["commandForm"].addEventListener("submit", function(e){
-                alert("vos deux adresses email sont différentes")
-            })
+            alert("vos deux adresses email sont différentes")
         }else{
             error.textContent = ""
         }

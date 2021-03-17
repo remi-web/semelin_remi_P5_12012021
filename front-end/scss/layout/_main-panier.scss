@@ -35,16 +35,32 @@ main{
         position: absolute;
         right: 3%;
         width: 5%;
-        height: 5%;
         font-family: AppleChancery;
         font-size: 0.6em ;
         margin-top: 1.5%;
+    }
+    form{
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+
+            #commander{
+                margin-top: 10%;
+                padding: 5%;
+                align-items: center;
+                width: 100%;
+            }
+    }
+    #error-text{
+        position: absolute;
+        bottom: 5%;
+        right: 10%
     }
 }
     #total{
         position: absolute;
         right: 10%;
-        bottom: 20%;
+        bottom: 30%;
         font-family: RobotoMono;
 
     }

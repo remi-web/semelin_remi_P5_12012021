@@ -120,13 +120,23 @@ function setItemProducts(productsStorage){
 
 //-------------PANIER FUNCTIONS---------------//
 function renderCartProducts(cartProduct){
-    return`
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        return`
     <img class="image" src=${cartProduct[i].image}>
     <p class="name">${cartProduct[i].name}</p>
-    <p class="description">${cartProduct[i].description}</p>
     <p class="price">${money(cartProduct[i].price)}</p>
     <button class="button-delete">Retirer </button>
 `
+    }
+    else{
+        return`
+        <img class="image" src=${cartProduct[i].image}>
+        <p class="name">${cartProduct[i].name}</p>
+        <p class="description">${cartProduct[i].description}</p>
+        <p class="price">${money(cartProduct[i].price)}</p>
+        <button class="button-delete">Retirer </button>
+    `
+    }
 }
 function deleteProduct (cartProduct){
 
@@ -196,4 +206,3 @@ function money(price){
     return price / 1000 + "0"+ "€"
 }
 
-//---------------COMMAND FUNCTION------------------//

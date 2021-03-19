@@ -78,12 +78,12 @@ function postCommand(objCommand,e){
         .then(result => 
             localStorage.setItem("orderId", JSON.stringify (result.orderId))
         )
-            if (response.ok){
-                console.log(orderId)
-                if (window.confirm(` Commande envoyée avec succès !`)) {
-                    window.location.href = " ../html/command-order.html";
-                }
+        if (response.ok){
+            console.log(orderId)
+            if (window.confirm(` Commande envoyée avec succès !`)) {
+                window.location.href = " ../html/command-order.html";
             }
+        }
     })
     .catch ((err) => {
         console.log(err);
@@ -93,11 +93,11 @@ function postCommand(objCommand,e){
 }
 
 let model = [
-    /[a-z]/,
-    /[a-z]/,
-    /^([0-9a-zA-Z_ ]){6,20}$/,
-    /[a-zA-Zàâäéèêëïîôöùûüç']/,
-    /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/,
+    /[a-z]/, //firstName
+    /[a-z]/, //lastName
+    /^([0-9a-zA-Z_ ]){6,20}$/, // address
+    /[a-zA-Zàâäéèêëïîôöùûüç']/, // city
+    /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/, // email
     /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/
 ]
 let messageInputChecking = [
@@ -110,5 +110,4 @@ let errorText = {
     email: "Adresses Email différentes",
     form: "Veuillez remplir le formulaire"
 }
-let orderIdMessage = "Numéro de commande:  " + orderId[0]
 

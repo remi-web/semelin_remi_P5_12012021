@@ -6,8 +6,6 @@ main{
 
         text-decoration: none;
 
-     
-
         img{
             margin-right: 11%;
             width: 20%;
@@ -68,4 +66,56 @@ main{
         }
     }
 
+}
+
+
+@media(max-width:667px){
+    main{
+        #camera{
+
+            form{
+                left: -45%;
+                top: 37%;
+            }
+            .item-link{
+        
+                #image{
+                    width: 80%;
+                    margin-bottom: 10%;
+                }
+
+                #description{
+                    width: 100%;
+                }
+            }
+            #button{
+                top: 108%;
+            }
+        
+        }
+    }
+}
+
+@media(min-width:768px){
+    main{
+        #camera{
+
+                form{
+                    left: 0%;
+                }
+            .item-link{
+        
+                #image{
+                    width: 50%;
+                }
+
+                #description{
+                    width: 120%;
+                }
+            }
+            #button{
+                top: 115%;
+            }
+        }
+    }
 }

@@ -1,6 +1,5 @@
 main{
     margin-top: 10%;
-    margin-left: 5%;
 }
 
 .camera{
@@ -8,7 +7,7 @@ main{
 
         img{
             margin-right: 3%;
-            width: 20%;
+            width: 30%;
             box-shadow: 6px 3px 12px 1px grey;
         }
         
@@ -47,9 +46,40 @@ main{
 .item-link{
     display: flex;
 }
-
 @media (max-width: 375px){
-  .camera{
-      flex-direction: column;
-  }
+    main{
+        .item-link{
+            position: relative;
+            .name{
+                top: -20%;
+                left: initial;
+            }
+        }
+    }
+}
+@media (max-width: 667px){
+    main{
+
+        .item-link{
+            flex-direction: column;
+            position: relative;
+
+                .image{
+                    width: 70%;
+                }
+                .name{
+                    position: absolute;
+                    bottom: 95%;
+                }
+                .price{
+                    position: absolute;
+                    left: 95%;
+                }
+                .description{
+                    width: 100%;
+                    margin-bottom: 20%;
+                }
+        }
+    }
+  
 }

@@ -1,24 +1,23 @@
+
 main{
     padding-bottom: 30%;
     position: relative;
 
-    img{
-        margin-right: 8%;
-        width: 15%;
-        box-shadow: 6px 3px 12px 1px grey;
-    }
-
- 
     .item-link{
         display: flex;
         width: 70%;
         text-decoration: none;
         margin: 5%;
+
+        .image{
+            margin-right: 8%;
+            box-shadow: 6px 3px 12px 1px grey;
+        }
     }
 
     .price{
         position: absolute;
-        right: 10%;
+        right: 20%;
         font-family: AmericanTypewriter;
         color: black;
     }
@@ -30,38 +29,32 @@ main{
     }
     .description{
         margin-left: 5%;
+        width: 50%;
     }
     .button-delete{
         position: absolute;
-        right: 3%;
+        right: 13%;
         width: 5%;
         font-family: AppleChancery;
         font-size: 0.6em ;
         margin-top: 1.5%;
     }
     form{
-        position: absolute;
-        bottom: 10%;
-        right: 10%;
+        margin-left: 50%;
 
-            #commander{
-                margin-top: 10%;
-                padding: 5%;
+        #commander{
+                margin-top: 2%;
+                padding: 1%;
                 align-items: center;
-                width: 100%;
+                width: 31%;
             }
-    }
-    #error-text{
-        position: absolute;
-        bottom: 5%;
-        right: 10%
     }
 }
     #total{
-        position: absolute;
-        right: 10%;
-        bottom: 30%;
+        margin-left: 81%;
         font-family: RobotoMono;
+        font-size: 1.3em;
+
 
     }
 
@@ -69,4 +62,109 @@ main{
         font-size:1.3em
     }
 
+    @media (max-width: 768px){
+
+        main{
+    
+            .item-link{
+    
+                margin-bottom: 10%;
+    
+                .image{
+                    width: 30%;
+                }
+    
+                .description{
+                    width: initial
+                }
+                .name{
+                    font-size: 0.7em;
+                    bottom: 17%;
+                    left: 34%;
+                }
+                .price{
+                    left: 70%;
+                    font-size: 0.8em;
+                }
+                .button-delete{
+                    width: initial;
+                    right: 0;
+                    left: 100%;
+                    top: 30%;
+                }
+            }
+            form{
+                
+                right: inherit;
+                margin-left: 70%;
+    
+                    #commander{
+                       min-width: 67%;
+                    }
+            }
+        }
+      
+    }
+@media (max-width: 375px){
+    main{
+
+        .item-link{
+            margin-bottom: 10%;
+
+                .image{
+                    width: 30%;
+                }
+                .name{
+                    left: 35%;
+                    font-size: 0.7em;
+                    top: 5%;
+                }
+                .button-delete{
+                    width: 20%;
+                    left: 100%;
+                    top: 7%;
+                    
+                }
+                .price{
+                    left: 75%;
+                    top: 5%;
+                    font-size: 0.7em;
+                }
+        }
+
+        #total{
+            margin-left:65%;
+        }
+        form{
+            
+            margin-left: 50%;
+
+            #commander{
+                width: 83%;
+            }
+        }
+    }
+}
+
+@media (min-width:1200px){
+    main{
+    
+        form{
+            margin-left: 80%;
+
+                input{
+                    width: 60%;
+                    height: 30px;
+                }
+
+                #commander{
+                    margin-top: 2%;
+                    padding: 1%;
+                    align-items: center;
+                    width: 63%;
+                    height: 50px;
+                }
+            }
+        }
+}
 

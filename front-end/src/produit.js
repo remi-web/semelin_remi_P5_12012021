@@ -17,4 +17,4 @@ var r = fetch( "http://localhost:3000/api/cameras/" + getProductId())
             }
         )
 caddyDisplay()
-   
+

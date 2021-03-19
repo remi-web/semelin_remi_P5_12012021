@@ -9,10 +9,11 @@
             content: url("../../maquette/Image Texture bois 100.png");
             width: 100%;
             background-color: #efd6bc;
-            //opacity: 0.5;
             position: absolute;
             z-index: -1;
             height: 100px;
+            overflow-x: hidden;
+
         }
 
         h3{
@@ -32,13 +33,26 @@
     }
 }
 
-@media (max-width:375px){
+@media (max-width:667px){
     #baner{
+        //width: auto;
 
         &-txt{
-            
+            text-align: center;
+
+         
+
+       
             h3{
                 font-size: inherit;
+                width: 80%;
+            }
+        }
+        &-img{
+
+            img{
+                height: inherit;
+                margin-bottom: 20%;
             }
         }
     }

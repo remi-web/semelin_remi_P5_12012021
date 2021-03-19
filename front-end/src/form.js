@@ -1,7 +1,7 @@
-var error = document.getElementById("error-text")
-var email = document.getElementById("email")
-var email2 =document.getElementById("email2")
-var inputs = document.commandForm.getElementsByTagName("input")
+let error = document.getElementById("error-text")
+let email = document.getElementById("email")
+let email2 =document.getElementById("email2")
+let inputs = document.commandForm.getElementsByTagName("input")
 
 //----------récupération des ID----------------------//
 let command = getItemProducts()
@@ -13,7 +13,7 @@ for (var i = 0; i < command.length; i++ ){
     products.push(commandId)
     }
 
-//------------verifivation des inputs------------------//
+//------------verification des inputs------------------//
 document.commandForm.addEventListener("submit", function(e){
 
     if(!inputsChecking()){
@@ -32,7 +32,6 @@ document.commandForm.addEventListener("submit", function(e){
         }
     
     const objCommand = {contact,products}
-    localStorage.setItem("command", JSON.stringify(objCommand))
     postCommand(objCommand)
     e.preventDefault()
     }

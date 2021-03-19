@@ -15,3 +15,40 @@ fetch( "http://localhost:3000/api/cameras/")
         )
          
 caddyDisplay()
+
+function setProduitId(products){
+    for (var i = 0; i < products.length; i++){
+    
+        let itemLink = document.getElementsByClassName('item-link')
+
+        let objId = {
+            id: products[i]._id,
+        }
+
+        let id = []
+        itemLink[i].addEventListener('click', function(){
+            id.push(objId.id)
+            localStorage.setItem("idProduitSelect", JSON.stringify(id))
+        })
+    }   
+} 
+function renderProducts(products){
+    
+    for (var i = 0; i < products.length; i++){
+        let camerasItems = document.querySelector("main")
+        let newP = document.createElement('div'); newP.className = "camera-link"
+        newP.innerHTML = `
+        <div class="camera">
+            <a class="item-link" href="produit/produit.html">
+                <img class="image"src=${products[i].imageUrl}>
+                <div class="camera-name-description">
+                    <p class="name">${products[i].name}</p>
+                    <p class="description">${products[i].description}</p>
+                </div>
+                <p class="price">${money(products[i].price)}</p>
+            </a>
+        </div>`
+        camerasItems.appendChild(newP)
+    }
+
+}

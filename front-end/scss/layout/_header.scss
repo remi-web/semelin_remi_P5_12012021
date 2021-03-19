@@ -1,12 +1,13 @@
 html{
     overflow-x: hidden;
 }
+
 header{
     display: flex;
     justify-content: space-between;
 }
-#logo{
 
+#logo{
     margin-left: 5%;
 
     h1{
@@ -14,16 +15,15 @@ header{
         margin-bottom: 0%;
         font-size: 2.3em;
         margin-top: 0%;
-       
-    }    
-        h2{
-            margin-top: 0%;
-            font-size: 0.8em;
-        }
-    
-}
-#header-nav{
+    }  
 
+    h2{
+        margin-top: 0%;
+        font-size: 0.8em;
+    }
+}
+
+#header-nav{
     ul{
         display: flex;
         justify-content: flex-end;
@@ -48,9 +48,11 @@ header{
 #home{
     width: 50%;
     }
+
 #caddy{
     width: 70%;
 }
+
 #user{
     width: 50%;
 }
@@ -62,6 +64,7 @@ header{
             #logo{
                 margin-left: 7%;
             }
+
             #header-nav{
                 margin-right: 7%;
 

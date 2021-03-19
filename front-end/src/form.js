@@ -31,9 +31,9 @@ document.commandForm.addEventListener("submit", function(e){
             email: document.commandForm.email.value,
         }
     
-    const objCommand = {contact,products}
-    postCommand(objCommand)
-    e.preventDefault()
+        const objCommand = {contact,products}
+        postCommand(objCommand)
+        e.preventDefault()
     }
 })
 
@@ -41,16 +41,18 @@ document.commandForm.addEventListener("submit", function(e){
 function inputsChecking(){
     
     for ( var i = 0; i < inputs.length; i++){
-
+        //-----test si formulaire complété---//
         if(inputs[i].value == ""){
             error.textContent = errorText.form
             return false
         }
+        //-----test avec les Regex----------//
         if(!(inputs[i].value).match(model[i])){
             error.textContent = messageInputChecking[i]
             return false
             }
     }
+    //--------test de confirmation d'email---//
     if (email2.value != email.value){
         error.textContent = errorText.email
         return false
@@ -78,7 +80,6 @@ function postCommand(objCommand,e){
             localStorage.setItem("orderId", JSON.stringify (result.orderId))
         )
         if (response.ok){
-            console.log(orderId)
             if (window.confirm(` Commande envoyée avec succès !`)) {
                 window.location.href = " ../html/command-order.html";
             }
@@ -86,12 +87,12 @@ function postCommand(objCommand,e){
     })
     .catch ((err) => {
         console.log(err);
-         window.alert(err)
+        window.alert(err)
         }
     )
 }
-
-let model = [
+let model//Regex//
+= [
     /[a-z]/, //firstName
     /[a-z]/, //lastName
     /^([0-9a-zA-Z_ ]){6,20}$/, // address

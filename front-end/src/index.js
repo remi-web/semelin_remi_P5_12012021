@@ -39,7 +39,7 @@ function renderProducts(products){
         let newP = document.createElement('div'); newP.className = "camera-link"
         newP.innerHTML = `
         <div class="camera">
-            <a class="item-link" href="produit/produit.html">
+            <a class="item-link" href="html/produit.html">
                 <img class="image"src=${products[i].imageUrl}>
                 <div class="camera-name-description">
                     <p class="name">${products[i].name}</p>

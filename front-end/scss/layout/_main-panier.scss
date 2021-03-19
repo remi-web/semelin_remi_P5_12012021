@@ -10,11 +10,12 @@ main{
         margin: 5%;
 
         .image{
+            position: relative;
             margin-right: 8%;
-            box-shadow: 6px 3px 12px 1px grey;
+            width: 10%;
         }
     }
-
+    
     .price{
         position: absolute;
         right: 20%;
@@ -28,8 +29,15 @@ main{
 
     }
     .description{
-        margin-left: 5%;
-        width: 50%;
+        position: absolute;
+        margin-left: 26%;
+        width: 30%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+
+        
     }
     .button-delete{
         position: absolute;
@@ -54,58 +62,23 @@ main{
         margin-left: 81%;
         font-family: RobotoMono;
         font-size: 1.3em;
-
-
     }
 
     #total-price-number{
         font-size:1.3em
     }
 
-    @media (max-width: 768px){
-
-        main{
+@media (min-width: 700px) and (max-width: 1200px){
+    main{
     
-            .item-link{
-    
-                margin-bottom: 10%;
-    
-                .image{
-                    width: 30%;
-                }
-    
-                .description{
-                    width: initial
-                }
-                .name{
-                    font-size: 0.7em;
-                    bottom: 17%;
-                    left: 34%;
-                }
-                .price{
-                    left: 70%;
-                    font-size: 0.8em;
-                }
-                .button-delete{
-                    width: initial;
-                    right: 0;
-                    left: 100%;
-                    top: 30%;
-                }
-            }
-            form{
-                
-                right: inherit;
-                margin-left: 70%;
-    
-                    #commander{
-                       min-width: 67%;
-                    }
-            }
+        .item-link{
+            flex-direction: initial;
+            margin-left: 10%;
         }
-      
     }
-@media (max-width: 375px){
+}
+    
+@media (min-width: 375px) and (max-width: 700px){
     main{
 
         .item-link{
@@ -126,45 +99,26 @@ main{
                     
                 }
                 .price{
-                    left: 75%;
-                    top: 5%;
+                    
                     font-size: 0.7em;
                 }
         }
 
         #total{
             margin-left:65%;
+            font-size: 0.8em;
         }
         form{
             
             margin-left: 50%;
+            width: 30%;
 
             #commander{
-                width: 83%;
+                width: 130%;
             }
         }
     }
 }
 
-@media (min-width:1200px){
-    main{
-    
-        form{
-            margin-left: 80%;
 
-                input{
-                    width: 60%;
-                    height: 30px;
-                }
-
-                #commander{
-                    margin-top: 2%;
-                    padding: 1%;
-                    align-items: center;
-                    width: 63%;
-                    height: 50px;
-                }
-            }
-        }
-}
 

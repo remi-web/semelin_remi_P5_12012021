@@ -9,7 +9,8 @@ footer{
         margin-bottom: 0%;
         font-size: 1.7em;
         margin-top: 0%;
-    }    
+    } 
+
     h4{
         margin-top: 0%;
         font-size: 0.7em;
@@ -19,6 +20,7 @@ footer{
         list-style: none;
         margin-left: 10%;
         }
+
     #contact{
         @include flex-columm;
         font-size: 1.2em;
@@ -31,7 +33,6 @@ footer{
     
 }
 #footer{
-    
     &-logo{
         position: absolute;
         left: 2%;
@@ -55,11 +56,10 @@ footer{
 }
 
 .footer-icon{
-
     width: 30%;
     }
-#footer-icon-fb{
 
+#footer-icon-fb{
     width: 80%;
 }
 

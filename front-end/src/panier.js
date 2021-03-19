@@ -63,12 +63,10 @@ function deleteProduct (cartProduct){
 function totalPrice (){
     cartProduct = getItemProducts()
 
+    //-------tableau des prix depuis le localstorage--//
     let arrayPrices = []
-    console.log(arrayPrices)
-    //------------aller chercher prix dans le panier-------//
     for (var i = 0; i < cartProduct.length; i++){
         let productPrice = cartProduct[i].price
-    //---- push des valeur pour les avoir dans un tableau pour pouvoir fair l'opération-----//
         arrayPrices.push(productPrice)
     }
     //--------------addition du total--------------//
@@ -77,6 +75,7 @@ function totalPrice (){
 
     //--------arrondit le résultat à 2 chiffres aorès la virgule------//
     let totalPrice = resultTotalPrice.toFixed(2)
+
     //----------affichage du résultat dans le DOM---------//
     document.getElementById("total-price-number").textContent = money(totalPrice)
 

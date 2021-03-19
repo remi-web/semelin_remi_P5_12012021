@@ -27,9 +27,8 @@ function addProductIncart(product){
         image: product.imageUrl,
         id: product._id
     }
-    //--------------evenement à écouter------------//
-    document.getElementById("button").addEventListener('click', function(){
 
+    document.getElementById("button").addEventListener('click', function(){
         let productsStorage = JSON.parse(localStorage.getItem("products"))
 
     //--------------condition si  panier déjà existant et si produit dejà dans panier--------------//
@@ -94,9 +93,9 @@ function popupConfirmation(product){
     
     if (window.confirm(`${product.name} a bien été ajouté au panier
             Aller au panier OK ou revenir à l'acceuil ANNULER`)) {
-                window.location.href = " ../panier/panier.html";
-    } else 
-    {
+                window.location.href = " ../html/panier.html";
+    } 
+    else{
         window.location.href = "../index.html";
     }
 }

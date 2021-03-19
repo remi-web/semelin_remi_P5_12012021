@@ -113,7 +113,7 @@ header {
   height: 200px;
 }
 
-@media (max-width: 667px) {
+@media (min-width: 200px) and (max-width: 700px) {
   #baner-txt {
     text-align: center;
   }
@@ -123,7 +123,7 @@ header {
   }
   #baner-img img {
     height: inherit;
-    margin-bottom: 20%;
+    margin-bottom: 10%;
   }
 }
 body {
@@ -136,72 +136,73 @@ body {
 main {
   margin-top: 10%;
 }
-
-.camera {
+main .camera-link .camera {
   margin-bottom: 10%;
 }
-.camera img {
+main .camera-link .camera .item-link {
+  display: flex;
+}
+main .camera-link .camera .item-link .image {
   margin-right: 3%;
-  width: 30%;
+  width: 20%;
   box-shadow: 6px 3px 12px 1px grey;
 }
-.camera .description {
+main .camera-link .camera .item-link .camera-name-description {
+  margin-left: 10%;
+}
+main .camera-link .camera .item-link .camera-name-description .description {
   display: flex;
-  width: 50%;
+  white-space: initial;
   flex-wrap: wrap;
   font-family: AmericanTypewriter;
   color: gray;
   margin-left: 0;
+  margin-top: 0%;
 }
-.camera .price {
-  margin-right: 10%;
-  display: flex;
-  flex-direction: column-reverse;
-  font-family: AmericanTypewriter;
-  color: black;
-}
-.camera a {
+main .camera-link .camera .item-link .camera-name-description a {
   text-decoration: none;
 }
-.camera .name {
+main .camera-link .camera .item-link .camera-name-description .name {
   font-family: AmericanTypewriter;
   font-weight: lighter;
   font-size: 1.3em;
   color: black;
+  margin-top: 0;
 }
-
-.item-link {
+main .camera-link .price {
   display: flex;
+  flex-direction: column-reverse;
+  font-family: AmericanTypewriter;
+  font-size: 1.3em;
+  color: black;
 }
 
-@media (max-width: 375px) {
-  main .item-link {
-    position: relative;
+@media (min-width: 700px) and (max-width: 1200px) {
+  main .camera-link .camera .item-link {
+    flex-direction: initial;
   }
-  main .item-link .name {
-    top: -20%;
-    left: initial;
+  main .camera-link .camera .item-link .camera-name-description .description {
+    font-size: 0.5em;
   }
 }
-@media (max-width: 667px) {
-  main .item-link {
-    flex-direction: column;
-    position: relative;
-  }
-  main .item-link .image {
-    width: 70%;
-  }
-  main .item-link .name {
-    position: absolute;
-    bottom: 95%;
-  }
-  main .item-link .price {
-    position: absolute;
-    left: 95%;
-  }
-  main .item-link .description {
-    width: 100%;
+@media (min-width: 200px) and (max-width: 700px) {
+  main .camera-link {
     margin-bottom: 20%;
+  }
+  main .camera-link .camera .item-link {
+    flex-direction: initial;
+  }
+  main .camera-link .camera .item-link .image {
+    width: 30%;
+  }
+  main .camera-link .camera .item-link .camera-name-description .description {
+    font-size: 0.5em;
+  }
+  main .camera-link .camera .item-link .camera-name-description .name {
+    font-size: 0.7em;
+  }
+  main .camera-link .price {
+    left: 80%;
   }
 }
 footer {
@@ -267,91 +268,6 @@ footer p {
 }
 
 main {
-  padding-bottom: 15%;
-}
-main .item-link {
-  text-decoration: none;
-}
-main .item-link img {
-  margin-right: 11%;
-  width: 20%;
-  box-shadow: 6px 3px 12px 1px grey;
-}
-main .item-link #description {
-  display: flex;
-  width: 50%;
-  flex-wrap: wrap;
-  font-family: RobotoMono;
-  color: gray;
-}
-main .item-link #price {
-  margin-right: 10%;
-  margin-top: 10%;
-  display: flex;
-  flex-direction: column-reverse;
-  font-family: AmericanTypewriter;
-  color: black;
-}
-main .item-link a {
-  text-decoration: none;
-}
-main .item-link #name {
-  font-family: AmericanTypewriter;
-  font-weight: lighter;
-  font-size: 1.3em;
-  color: black;
-  margin-bottom: 5%;
-}
-main #camera {
-  position: relative;
-}
-main #camera form {
-  position: absolute;
-  left: 50%;
-  top: 11%;
-}
-main #camera #button {
-  position: absolute;
-  right: 12%;
-  bottom: 5%;
-  height: 50px;
-  font-family: AmericanTypewriter;
-  border-radius: 5%;
-  border-style: none;
-  box-shadow: 2px 2px 10px 1px grey;
-}
-
-@media (max-width: 667px) {
-  main #camera form {
-    left: -45%;
-    top: 37%;
-  }
-  main #camera .item-link #image {
-    width: 80%;
-    margin-bottom: 10%;
-  }
-  main #camera .item-link #description {
-    width: 100%;
-  }
-  main #camera #button {
-    top: 108%;
-  }
-}
-@media (min-width: 768px) {
-  main #camera form {
-    left: 0%;
-  }
-  main #camera .item-link #image {
-    width: 50%;
-  }
-  main #camera .item-link #description {
-    width: 120%;
-  }
-  main #camera #button {
-    top: 115%;
-  }
-}
-main {
   padding-bottom: 30%;
   position: relative;
 }
@@ -362,8 +278,9 @@ main .item-link {
   margin: 5%;
 }
 main .item-link .image {
+  position: relative;
   margin-right: 8%;
-  box-shadow: 6px 3px 12px 1px grey;
+  width: 10%;
 }
 main .price {
   position: absolute;
@@ -376,8 +293,12 @@ main .name {
   color: black;
 }
 main .description {
-  margin-left: 5%;
-  width: 50%;
+  position: absolute;
+  margin-left: 26%;
+  width: 30%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 main .button-delete {
   position: absolute;
@@ -407,40 +328,13 @@ main form #commander {
   font-size: 1.3em;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 700px) and (max-width: 1200px) {
   main .item-link {
-    margin-bottom: 10%;
-  }
-  main .item-link .image {
-    width: 30%;
-  }
-  main .item-link .description {
-    width: initial;
-  }
-  main .item-link .name {
-    font-size: 0.7em;
-    bottom: 17%;
-    left: 34%;
-  }
-  main .item-link .price {
-    left: 70%;
-    font-size: 0.8em;
-  }
-  main .item-link .button-delete {
-    width: initial;
-    right: 0;
-    left: 100%;
-    top: 30%;
-  }
-  main form {
-    right: inherit;
-    margin-left: 70%;
-  }
-  main form #commander {
-    min-width: 67%;
+    flex-direction: initial;
+    margin-left: 10%;
   }
 }
-@media (max-width: 375px) {
+@media (min-width: 375px) and (max-width: 700px) {
   main .item-link {
     margin-bottom: 10%;
   }
@@ -458,34 +352,99 @@ main form #commander {
     top: 7%;
   }
   main .item-link .price {
-    left: 75%;
-    top: 5%;
     font-size: 0.7em;
   }
   main #total {
     margin-left: 65%;
+    font-size: 0.8em;
   }
   main form {
     margin-left: 50%;
+    width: 30%;
   }
   main form #commander {
-    width: 83%;
+    width: 130%;
   }
 }
-@media (min-width: 1200px) {
-  main form {
-    margin-left: 80%;
+main {
+  padding-bottom: 15%;
+}
+main .item-link {
+  text-decoration: none;
+}
+main .item-link #image {
+  margin-right: 11%;
+  width: 40%;
+  box-shadow: 6px 3px 12px 1px grey;
+}
+main .item-link #description {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: RobotoMono;
+  font-size: 1.3em;
+  color: gray;
+}
+main .item-link #price {
+  margin-right: 10%;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: AmericanTypewriter;
+  font-size: 1.2em;
+  color: black;
+}
+main .item-link a {
+  text-decoration: none;
+}
+main .item-link #name {
+  font-family: AmericanTypewriter;
+  font-weight: lighter;
+  font-size: 1.3em;
+  color: black;
+  margin-bottom: 5%;
+}
+main #camera {
+  position: relative;
+}
+main #camera form {
+  position: absolute;
+  right: 43%;
+  top: 8%;
+}
+main #camera #button {
+  position: absolute;
+  right: 12%;
+  bottom: 5%;
+  height: 50px;
+  font-family: AmericanTypewriter;
+  border-radius: 5%;
+  border-style: none;
+  box-shadow: 2px 2px 10px 1px grey;
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+  main .item-link {
+    flex-direction: column;
   }
-  main form input {
-    width: 60%;
-    height: 30px;
+  main .item-link #image {
+    width: 55%;
+    height: 20%;
   }
-  main form #commander {
-    margin-top: 2%;
-    padding: 1%;
-    align-items: center;
-    width: 63%;
-    height: 50px;
+  main #camera form {
+    top: 47%;
+    right: 50%;
+  }
+}
+@media (min-width: 200px) and (max-width: 700px) {
+  main .item-link {
+    flex-direction: column;
+  }
+  main .item-link #image {
+    width: 100%;
+  }
+  main #camera form {
+    top: 40%;
+    right: 20%;
   }
 }
 

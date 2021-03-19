@@ -1,23 +1,21 @@
 main{
-
     padding-bottom: 15%;
 
     .item-link{
-
         text-decoration: none;
 
-        img{
+        #image{
             margin-right: 11%;
-            width: 20%;
+            width: 40%;
             box-shadow: 6px 3px 12px 1px grey;
+
         }
-        
 
         #description{
             display: flex;
-            width: 50%;
             flex-wrap: wrap;
             font-family: RobotoMono;
+            font-size: 1.3em;
             color: gray
         }
 
@@ -27,20 +25,20 @@ main{
             display: flex;
             flex-direction: column-reverse;
             font-family: AmericanTypewriter;
+            font-size: 1.2em;
             color: black;
-
         }
         
         a{
             text-decoration: none;
         }
+
         #name{
             font-family: AmericanTypewriter;
             font-weight: lighter;
             font-size: 1.3em;
             color: black;
             margin-bottom: 5%;
-
         }
     }
     
@@ -49,8 +47,8 @@ main{
 
         form{ 
             position: absolute;
-            left: 50%;
-            top: 11%;
+            right: 43%;
+            top: 8%;
         }
 
         #button{
@@ -65,56 +63,45 @@ main{
 
         }
     }
-
 }
 
-
-@media(max-width:667px){
+@media (min-width: 700px) and (max-width: 1200px){
     main{
+        .item-link{
+            flex-direction: column;
+
+            #image{
+                width: 55%;
+                height: 20%;
+            }
+        }
+
         #camera{
-
             form{
-                left: -45%;
-                top: 37%;
+                top: 47%;
+                right: 50%;
             }
-            .item-link{
-        
-                #image{
-                    width: 80%;
-                    margin-bottom: 10%;
-                }
-
-                #description{
-                    width: 100%;
-                }
-            }
-            #button{
-                top: 108%;
-            }
-        
         }
     }
 }
 
-@media(min-width:768px){
+@media (min-width: 200px) and (max-width: 700px){
     main{
+        
+        .item-link{
+            flex-direction: column;
+
+            #image{
+                width: 100%;
+                //height: 20%;
+            }
+        }
+
         #camera{
 
-                form{
-                    left: 0%;
-                }
-            .item-link{
-        
-                #image{
-                    width: 50%;
-                }
-
-                #description{
-                    width: 120%;
-                }
-            }
-            #button{
-                top: 115%;
+            form{
+                top: 40%;
+                right: 20%;
             }
         }
     }

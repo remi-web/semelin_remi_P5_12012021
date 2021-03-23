@@ -21,7 +21,7 @@ document.commandForm.addEventListener("submit", function(e){
         return
     }
 
-    //------envois au serveur et local storage------------//
+    //------envois au serveur------------//
     else{
         contact = {
             firstName: document.commandForm.firstName.value,
@@ -91,11 +91,11 @@ function postCommand(objCommand,e){
         }
     )
 }
-let model//Regex//
-= [
-    /[a-z]/, //firstName
-    /[a-z]/, //lastName
-    /^([0-9a-zA-Z_ ]){6,20}$/, // address
+let model =//Regex//
+[
+    /[a-zA-Zàâäéèêëïîôöùûüç]/, //firstName
+    /[a-zA-Zàâäéèêëïîôöùûüç]/, //lastName
+    /^([0-9a-zA-Z ]){6,20}$/, // address
     /[a-zA-Zàâäéèêëïîôöùûüç']/, // city
     /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/, // email
     /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/

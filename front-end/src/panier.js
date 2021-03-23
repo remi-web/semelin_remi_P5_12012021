@@ -1,38 +1,32 @@
-//---------récupération de l'objet envoyé ds le localstorage----------------//
 let cartProduct = getItemProducts()
-//-------création et affichage des nouveaux éléments dans le DOM------------//
-for (var i = 0; i < cartProduct.length ; i++){
-    let itemPanier = document.querySelector('main')
-    let itemClass = document.createElement('section'); itemClass.className = "item-link"
-    itemClass.innerHTML = renderCartProducts(cartProduct)
-    itemPanier.prepend(itemClass)
-}
 
+panierDisplay()
 deleteProduct()
 totalPrice()
 caddyDisplay()
+caddyIsNull()
 
-let panierTitle = document.getElementById("panier-title")
-if ((getItemProducts()).length === 0){
-    panierTitle.textContent = "Votre panier est vide"
-}
 
-function renderCartProducts(cartProduct){
+function renderCartProducts(cartProduct,i){
     if (window.matchMedia("(max-width: 768px)").matches) {
         return`
+        <section class="item-link">
             <img class="image" src=${cartProduct[i].image}>
             <p class="name">${cartProduct[i].name}</p>
             <p class="price">${money(cartProduct[i].price)}</p>
             <button class="button-delete">Retirer </button>
+        </section>
         `
     }
     else{
         return`
+        <section class="item-link">
             <img class="image" src=${cartProduct[i].image}>
             <p class="name">${cartProduct[i].name}</p>
             <p class="description">${cartProduct[i].description}</p>
             <p class="price">${money(cartProduct[i].price)}</p>
             <button class="button-delete">Retirer </button>
+        </section>
         `
     }
 }
@@ -79,4 +73,14 @@ function totalPrice (){
     //----------affichage du résultat dans le DOM---------//
     document.getElementById("total-price-number").textContent = money(totalPrice)
 
+}
+function caddyIsNull (){
+    if ((getItemProducts()).length === 0){
+        document.getElementById("panier-title").textContent = "Votre panier est vide"
+    }
+}
+function panierDisplay (){
+    for (var i = 0; i < cartProduct.length ; i++){
+        document.querySelector('main').insertAdjacentHTML("afterbegin",renderCartProducts(cartProduct,i))
+    }
 }

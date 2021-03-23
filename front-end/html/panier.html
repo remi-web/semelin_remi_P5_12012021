@@ -37,19 +37,18 @@
         </div>
         <main>
             <div id= "total">Total<p id="total-price-number"></p></div>
-            
-            <form method="POST" name="commandForm" >
-                <input class="input" type="text" name="firstName" placeholder="First name" ><br>
-                <input class="input" type="text" name="lastName" placeholder="Last name" ><br>
-                <input class="input" type="text" name="adress" placeholder="Adresse" ><br>
-                <input class="input" type="text" name="city" placeholder="City" ><br>
-                <input class="input" type="email" name="email" placeholder="Email" id="email" ><br>
-                <input class="input" type = "email" name="emailConfirmation" placeholder="Confirmation de l'email" id="email2" ><br>
-                <input id="commander" type="submit" value="Commander">
-                <p id = "error-text" style="color: red;"></p>    
-
-            </form>
-
+            <div id="form-command">
+                <form method="POST" name="commandForm" >
+                    <input class="input" type="text" name="firstName" placeholder="First name" ><br>
+                    <input class="input" type="text" name="lastName" placeholder="Last name" ><br>
+                    <input class="input" type="text" name="adress" placeholder="Adresse" ><br>
+                    <input class="input" type="text" name="city" placeholder="City" ><br>
+                    <input class="input" type="email" name="email" placeholder="Email" id="email" ><br>
+                    <input class="input" type = "email" name="emailConfirmation" placeholder="Confirmation de l'email" id="email2" ><br>
+                    <input id="commander" type="submit" value="Commander">
+                    <p id = "error-text" style="color: red;"></p>    
+                </form>
+            </div>
         </main>
         <footer>
             <section id="footer-logo">

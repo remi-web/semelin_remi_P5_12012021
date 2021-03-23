@@ -45,28 +45,34 @@ main{
         width: 5%;
         font-family: AppleChancery;
         font-size: 0.6em ;
-        margin-top: 1.5%;
+        margin-top: 1%;
     }
-    form{
-        margin-left: 50%;
+    #form-command{
+        width: 15%;
+        margin-left: 75%;
 
-        #commander{
-                margin-top: 2%;
-                padding: 1%;
-                align-items: center;
-                width: 31%;
+        form{
+            input{
+            width: 100%;
             }
+            #commander{
+                    margin-top: 2%;
+                    padding: 1%;
+                    align-items: center;
+                    width: 105%;
+                }
+        }
     }
 }
-    #total{
-        margin-left: 81%;
-        font-family: RobotoMono;
-        font-size: 1.3em;
-    }
+#total{
+    margin-left: 78%;
+    font-family: RobotoMono;
+    font-size: 1.3em;
+}
 
-    #total-price-number{
-        font-size:1.3em
-    }
+#total-price-number{
+    font-size:1.3em
+}
 
 @media (min-width: 700px) and (max-width: 1200px){
     main{
@@ -74,6 +80,18 @@ main{
         .item-link{
             flex-direction: initial;
             margin-left: 10%;
+        }
+
+        .name{
+            font-size: 0.7em;
+        }
+
+        .button-delete{
+            margin-top: 1.5%;
+        }
+
+        #total-price-number{
+            font-size: 1.2em;
         }
     }
 }
@@ -108,13 +126,13 @@ main{
             margin-left:65%;
             font-size: 0.8em;
         }
-        form{
-            
-            margin-left: 50%;
-            width: 30%;
 
-            #commander{
-                width: 130%;
+        #form-command{
+            width: 30%;
+            margin-left: 53%;
+            
+            form{
+                width: 100%;
             }
         }
     }

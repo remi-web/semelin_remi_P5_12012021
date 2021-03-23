@@ -1,5 +1,4 @@
-let commandOrder = document.getElementById("command-order")
-
+//--------------Récupération et affichage de l'order Id---------------------//
 let orderId = JSON.parse(localStorage.getItem("orderId"))
 
-commandOrder.textContent =  orderId
+document.getElementById("command-order").textContent =  orderId

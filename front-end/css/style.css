@@ -306,20 +306,24 @@ main .button-delete {
   width: 5%;
   font-family: AppleChancery;
   font-size: 0.6em;
-  margin-top: 1.5%;
+  margin-top: 1%;
 }
-main form {
-  margin-left: 50%;
+main #form-command {
+  width: 15%;
+  margin-left: 75%;
 }
-main form #commander {
+main #form-command form input {
+  width: 100%;
+}
+main #form-command form #commander {
   margin-top: 2%;
   padding: 1%;
   align-items: center;
-  width: 31%;
+  width: 105%;
 }
 
 #total {
-  margin-left: 81%;
+  margin-left: 78%;
   font-family: RobotoMono;
   font-size: 1.3em;
 }
@@ -332,6 +336,15 @@ main form #commander {
   main .item-link {
     flex-direction: initial;
     margin-left: 10%;
+  }
+  main .name {
+    font-size: 0.7em;
+  }
+  main .button-delete {
+    margin-top: 1.5%;
+  }
+  main #total-price-number {
+    font-size: 1.2em;
   }
 }
 @media (min-width: 375px) and (max-width: 700px) {
@@ -358,12 +371,12 @@ main form #commander {
     margin-left: 65%;
     font-size: 0.8em;
   }
-  main form {
-    margin-left: 50%;
+  main #form-command {
     width: 30%;
+    margin-left: 53%;
   }
-  main form #commander {
-    width: 130%;
+  main #form-command form {
+    width: 100%;
   }
 }
 main {
@@ -445,6 +458,36 @@ main #camera #button {
   main #camera form {
     top: 40%;
     right: 20%;
+  }
+}
+main #order-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10%;
+}
+main #order-message p {
+  font-family: AmericanTypewriter;
+  font-size: 1.3em;
+}
+main #order-message #command-order {
+  font-family: RobotoMono;
+  font-style: italic;
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+  main #order-message {
+    margin-bottom: 45%;
+  }
+}
+@media (min-width: 375px) and (max-width: 700px) {
+  main #order-message {
+    margin-bottom: 45%;
+    flex-wrap: wrap;
+  }
+  main #order-message p {
+    font-size: 0.9em;
+    text-align: center;
   }
 }
 

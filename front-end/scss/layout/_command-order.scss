@@ -1,0 +1,41 @@
+main{
+    
+    #order-message{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10%;
+
+        p{
+            font-family: AmericanTypewriter;
+            font-size: 1.3em;
+        }
+        #command-order{
+            font-family: RobotoMono;
+            font-style: italic;
+        }
+    }
+}
+@media (min-width: 700px) and (max-width: 1200px){
+    main{
+    
+        #order-message{
+            margin-bottom: 45%;
+        }
+    }
+}
+
+@media (min-width: 375px) and (max-width: 700px){
+    main{
+    
+        #order-message{
+            margin-bottom: 45%;
+            flex-wrap: wrap;
+            
+            p{
+                font-size: 0.9em;
+                text-align: center;
+            }
+        }
+    }
+}

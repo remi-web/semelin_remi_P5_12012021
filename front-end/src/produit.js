@@ -1,21 +1,21 @@
 
 //--------requete et affichage de l'article cliqué par son ID--------//
 
-var r = fetch( "http://localhost:3000/api/cameras/" + getProductId())
-        .then ((response) => {
-            return response.json()
+fetch( "http://localhost:3000/api/cameras/" + getProductId())
+    .then ((response) => {
+        return response.json()
             
-        })
-        .then ((product) => {
-            displayProduct(product)
-            addProductIncart(product)
-
-        })
+    })
+    .then ((product) => {
+        document.querySelector('main').innerHTML = renderProduct(product)
+        addProductIncart(product)
+     })
             
-        .catch ((err) => {
-            console.log(err);
-            }
-        )
+    .catch ((err) => {
+        console.log(err);
+        }
+    )
+    
 caddyDisplay()
 
 function addProductIncart(product){
@@ -62,26 +62,23 @@ function hasProductInCart(productsStorage){
 function renderProduct(product){
     return `
     <div id="camera">
-    <form>
-        <label for="optic-choice"></label>
-            <select id="optic-choose" name="optic-choose">
-                <option value= "number" id="optic1">${product.lenses[0]}</option>
-                <option vale= "number" id="optic2">${product.lenses[1]}</option>
-            </select>
-    </form>
-    <a class="item-link" href="produit.html">
-        <img id="image" src=${product.imageUrl}>
-        <div class="camera-name-description">
-            <p id="name">${product.name}</p>
-            <p id="description">${product.description}</p>
-            <p id="price">${money(product.price)}</p>
-        </div>
-    </a>
-    <button id="button">Ajouter au panier</button>
-</div>`
-}
-function displayProduct(product){
-    document.querySelector('main').innerHTML = renderProduct(product)
+        <form>
+            <label for="optic-choice"></label>
+                <select id="optic-choose" name="optic-choose">
+                    <option value= "number" id="optic1">${product.lenses[0]}</option>
+                    <option vale= "number" id="optic2">${product.lenses[1]}</option>
+                </select>
+        </form>
+        <a class="item-link" href="produit.html">
+            <img id="image" src=${product.imageUrl}>
+            <div class="camera-name-description">
+                <p id="name">${product.name}</p>
+                <p id="description">${product.description}</p>
+                <p id="price">${money(product.price)}</p>
+            </div>
+        </a>
+        <button id="button">Ajouter au panier</button>
+    </div>`
 }
 function getProductId(){
     if(!localStorage.getItem("idProduitSelect")){

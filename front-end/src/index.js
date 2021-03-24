@@ -5,10 +5,11 @@ fetch( "http://localhost:3000/api/cameras/")
             
         })
         .then ((products) => {
-            for (var i = 0; i < products.length; i++){
-                document.querySelector("main").innerHTML += renderProducts(products,i)
-            }
-            setProduitId(products)
+            products.forEach(product => {
+                document.querySelector("main").innerHTML += renderProducts(product)
+            })
+
+            setProductId(products)
 
         })
             
@@ -19,11 +20,10 @@ fetch( "http://localhost:3000/api/cameras/")
        
 caddyDisplay()
 
-function setProduitId(products,i){
+function setProductId(products){
    for (var i = 0; i < products.length; i++){
     
         let itemLink = document.getElementsByClassName('item-link')
-
         let objId = {
             id: products[i]._id,
         }
@@ -36,18 +36,18 @@ function setProduitId(products,i){
         })
     }   
 } 
-function renderProducts(products, i){
+function renderProducts(product){
 
         return `
         <div class="camera-link">
             <div class="camera">
                 <a class="item-link" href="html/produit.html">
-                    <img class="image"src=${products[i].imageUrl}>
+                    <img class="image"src=${product.imageUrl}>
                     <div class="camera-name-description">
-                        <p class="name">${products[i].name}</p>
-                        <p class="description">${products[i].description}</p>
+                        <p class="name">${product.name}</p>
+                        <p class="description">${product.description}</p>
                     </div>
-                    <p class="price">${money(products[i].price)}</p>
+                    <p class="price">${money(product.price)}</p>
                 </a>
             </div>
         </div>

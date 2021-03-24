@@ -4,7 +4,7 @@ function getItemProducts(){
 function caddyDisplay(){
     let articleNumber = document.getElementById("article-number")
 
-    if ((getItemProducts()).length > 0){
+    if (getItemProducts() && (getItemProducts()).length > 0){
        articleNumber.textContent = (getItemProducts()).length
     }
     else{

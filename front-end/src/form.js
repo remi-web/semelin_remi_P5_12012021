@@ -1,21 +1,18 @@
 let error = document.getElementById("error-text")
-let email = document.getElementById("email")
-let email2 =document.getElementById("email2")
 let inputs = document.commandForm.getElementsByTagName("input")
 
 //----------récupération des ID----------------------//
-let command = getItemProducts()
-let orderId = []
 let products = []
 
-for (var i = 0; i < command.length; i++ ){
-    let commandId = command[i].id
-    products.push(commandId)
+if (getItemProducts()){
+    for (var i = 0; i < (getItemProducts()).length; i++ ){
+        products.push(getItemProducts()[i].id)
     }
+}
 
-//------------verification des inputs------------------//
 document.commandForm.addEventListener("submit", function(e){
 
+    //----verification des inputs------//
     if(!inputsChecking()){
         e.preventDefault()
         return
@@ -37,7 +34,6 @@ document.commandForm.addEventListener("submit", function(e){
     }
 })
 
-
 function inputsChecking(){
     
     for ( var i = 0; i < inputs.length; i++){
@@ -53,7 +49,7 @@ function inputsChecking(){
             }
     }
     //--------test de confirmation d'email---//
-    if (email2.value != email.value){
+    if (document.getElementById("email").value != document.getElementById("email2").value){
         error.textContent = errorText.email
         return false
     }
@@ -93,8 +89,8 @@ function postCommand(objCommand,e){
 }
 let model =//Regex//
 [
-    /[a-zA-Zàâäéèêëïîôöùûüç]/, //firstName
-    /[a-zA-Zàâäéèêëïîôöùûüç]/, //lastName
+    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //firstName
+    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //lastName
     /^([0-9a-zA-Z ]){6,20}$/, // address
     /[a-zA-Zàâäéèêëïîôöùûüç']/, // city
     /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/, // email

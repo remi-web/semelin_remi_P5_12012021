@@ -15,36 +15,25 @@ fetch( "http://localhost:3000/api/cameras/" + getProductId())
         console.log(err);
         }
     )
-    
+
 caddyDisplay()
 
 function addProductIncart(product){
-    //----------objet a ajouter -----------------//    
-    let itemAddCart = {
-        name: product.name, 
-        description: product.description,
-        price: product.price,
-        image: product.imageUrl,
-        id: product._id
-    }
 
     document.getElementById("button").addEventListener('click', function(){
-        let productsStorage = JSON.parse(localStorage.getItem("products"))
+        
+        let productsStorage = []
 
-    //--------------condition si  panier déjà existant et si produit dejà dans panier--------------//
-        if(productsStorage){
-                           
+    //------conditions si  panier déjà existant et si produit dejà dans panier------//
+        if(getItemProducts()){
+            productsStorage = getItemProducts()
+
             if (! hasProductInCart(productsStorage)) {
-                productsStorage.push(itemAddCart)
-                setItemProducts(productsStorage)
-                popupConfirmation(product)
+                pushProductInCart(productsStorage, product)
             }
         }
         else{
-            let productsStorage = []
-            productsStorage.push(itemAddCart)
-            setItemProducts(productsStorage)
-            popupConfirmation(product)
+            pushProductInCart(productsStorage, product)
         }
     })
 }
@@ -95,4 +84,17 @@ function popupConfirmation(product){
     else{
         window.location.href = "../index.html";
     }
+}
+function pushProductInCart(productsStorage,product){
+
+    productsStorage.push({
+        name: product.name, 
+        description: product.description,
+        price: product.price,
+        image: product.imageUrl,
+        id: product._id
+    })
+
+    setItemProducts(productsStorage)
+    popupConfirmation(product)
 }

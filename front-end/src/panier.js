@@ -1,22 +1,96 @@
-let cartProduct = getItemProducts()
+let cartProducts = getItemProducts()
 
-if(cartProduct){
-    panierDisplay()
+if(cartProducts){
+    displayProductsInCart()
     listenForDeleteProduct()
-    totalPrice()
-    caddyDisplay()
+    calculateTotalPrice(cartProducts)
+    displayProductsQantity()
 }
 
-caddyIsNull()
+listenForEmptyCaddy()
+displayForEmptyCaddy()
 
 
-function renderCartProducts(cartProduct,i){
+function calculateTotalPrice (cartProducts){
+    
+        //-------tableau des prix depuis le localstorage--//
+        let arrayPrices = []
+        for (var i = 0; i < cartProducts.length; i++){
+            let productPrice = cartProducts[i].price
+            arrayPrices.push(productPrice)
+        }
+        //--------------addition du total--------------//
+        const reducer = (accumalator, currentValue) => accumalator + currentValue
+        const resultTotalPrice = arrayPrices.reduce(reducer,0)
+
+        //--------arrondit le résultat à 2 chiffres après la virgule------//
+        let totalPrice = (resultTotalPrice.toFixed(2))
+        //-------affiche le total------------------------//
+        displayTotalPrice(totalPrice)
+}
+function deleteProduct(objId){
+
+    let idDelete = []
+    idDelete.push(objId.id)
+    cartProductsFilter = cartProducts.filter((product) => product.id != idDelete )
+    setItemProducts(cartProductsFilter)
+    document.location.reload()
+}
+function displayForEmptyCaddy (){
+
+    if ((! getItemProducts()) || (getItemProducts()).length === 0){
+        document.getElementById("panier-title").textContent = "Votre panier est vide"
+        document.getElementById("total").style.display = "none"
+        document.getElementById("form-command").style.display = "none"
+        document.getElementById("empty-button").style.display = "none"
+    }
+}
+function displayProductsInCart (){
+
+    cartProducts.forEach(cartProduct => {
+        document.querySelector('main').insertAdjacentHTML("afterbegin",renderCartProducts(cartProduct))
+    })
+}
+function displayTotalPrice(totalPrice){
+    document.getElementById("total-price-number").textContent = money(totalPrice)
+}
+function listenForDeleteProduct (){
+
+    cartProductsReverse = cartProducts.reverse()
+    let buttonDeleteItem = document.getElementsByClassName("button-delete")
+    
+    for (var i = 0; i < getItemProducts().length; i++){
+        
+        let objId = {
+            id: cartProductsReverse[i].id
+        }
+    
+        buttonDeleteItem[i].addEventListener('click', function(){
+            let conf = window.confirm("Etes vous sur de vouloir supprimer cet article ?")
+            if(conf){
+                deleteProduct(objId)
+            }
+        })  
+    }
+}
+function listenForEmptyCaddy(){
+
+    let buttonEmptyCaddy = document.getElementById("empty-button")
+
+    buttonEmptyCaddy.addEventListener('click', function(){
+        if(window.confirm (`Etes vous sur de vouloir vider le PANIER ?`)){
+            emptyCaddy()
+        }
+    })
+}
+function renderCartProducts(cartProduct){
+
     if (window.matchMedia("(max-width: 768px)").matches) {
         return`
         <section class="item-link">
-            <img class="image" src=${cartProduct[i].image}>
-            <p class="name">${cartProduct[i].name}</p>
-            <p class="price">${money(cartProduct[i].price)}</p>
+            <img class="image" src=${cartProduct.image}>
+            <p class="name">${cartProduct.name}</p>
+            <p class="price-cart-product">${money(cartProduct.price)}</p>
             <button class="button-delete">Retirer </button>
         </section>
         `
@@ -24,70 +98,14 @@ function renderCartProducts(cartProduct,i){
     else{
         return`
         <section class="item-link">
-            <img class="image" src=${cartProduct[i].image}>
-            <p class="name">${cartProduct[i].name}</p>
-            <p class="description">${cartProduct[i].description}</p>
-            <p class="price">${money(cartProduct[i].price)}</p>
+            <img class="image" src=${cartProduct.image}>
+            <p class="name">${cartProduct.name}</p>
+            <p class="description">${cartProduct.description}</p>
+            <p class="price-cart-product">${money(cartProduct.price)}</p>
             <button class="button-delete">Retirer </button>
         </section>
         `
     }
 }
-function listenForDeleteProduct (){
 
-        cartProductReverse = cartProduct.reverse()
-        let buttonDeleteItem = document.getElementsByClassName("button-delete")
-        
-        for (var i = 0; i < getItemProducts().length; i++){
-            
-            let objId = {
-                id: cartProductReverse[i].id
-            }
-        
-            buttonDeleteItem[i].addEventListener('click', function(){
-                let conf = window.confirm("Etes vous sur de vouloir supprimer cet article ?")
-                if(conf){
-                    deleteProduct(objId)
-                }
-            })  
-        }
-}
-function deleteProduct(objId){
-    let idDelete = []
-    idDelete.push(objId.id)
-    cartProductFilter = cartProduct.filter((product) => product.id != idDelete )
-    setItemProducts(cartProductFilter)
-    document.location.reload()
-}
-function totalPrice (){
 
-        cartProduct = getItemProducts()
-    
-        //-------tableau des prix depuis le localstorage--//
-        let arrayPrices = []
-        for (var i = 0; i < cartProduct.length; i++){
-            let productPrice = cartProduct[i].price
-            arrayPrices.push(productPrice)
-        }
-        //--------------addition du total--------------//
-        const reducer = (accumalator, currentValue) => accumalator + currentValue
-        const resultTotalPrice = arrayPrices.reduce(reducer,0)
-
-        //--------arrondit le résultat à 2 chiffres aorès la virgule------//
-        let totalPrice = resultTotalPrice.toFixed(2)
-
-        //----------affichage du résultat dans le DOM---------//
-        document.getElementById("total-price-number").textContent = money(totalPrice)
-}
-function caddyIsNull (){
-    if ((! getItemProducts()) || (getItemProducts()).length === 0){
-        document.getElementById("panier-title").textContent = "Votre panier est vide"
-        document.getElementById("total").style.display = "none"
-        document.getElementById("form-command").style.display = "none"
-    }
-}
-function panierDisplay (){
-        for (var i = 0; i < cartProduct.length ; i++){
-            document.querySelector('main').insertAdjacentHTML("afterbegin",renderCartProducts(cartProduct,i))
-    }
-}

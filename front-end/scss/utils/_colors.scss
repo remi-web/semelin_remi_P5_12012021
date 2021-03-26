@@ -1,10 +1,10 @@
 @mixin wood-background {
-    background-image: url("../../maquette/Image Texture bois.png");
+    background-image: url("../images/textures/Image Texture bois.png");
     background-color: #efd6bc;
 }
 
 @mixin marbre-background{
-    background-image: url("../../maquette/Image Texture marbre.png");
+    background-image: url("../images/textures/Image Texture marbre.png");
     background-attachment: fixed;
 } 
 

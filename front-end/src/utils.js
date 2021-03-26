@@ -1,7 +1,8 @@
 function getItemProducts(){
     return JSON.parse(localStorage.getItem("products"))
 }
-function caddyDisplay(){
+function displayProductsQantity(){
+    
     let articleNumber = document.getElementById("article-number")
 
     if (getItemProducts() && (getItemProducts()).length > 0){
@@ -16,4 +17,8 @@ function money(price){
 }
 function setItemProducts(productsStorage){
     localStorage.setItem("products",JSON.stringify(productsStorage))
+}
+function emptyCaddy(){
+    localStorage.clear()
+    document.location.reload()
 }

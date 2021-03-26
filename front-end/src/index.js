@@ -8,34 +8,16 @@ fetch( "http://localhost:3000/api/cameras/")
             products.forEach(product => {
                 document.querySelector("main").innerHTML += renderProducts(product)
             })
-
             setProductId(products)
 
         })
-            
         .catch ((err) => {
             console.log(err);
             }
         )
        
-caddyDisplay()
-
-function setProductId(products){
-   for (var i = 0; i < products.length; i++){
-    
-        let itemLink = document.getElementsByClassName('item-link')
-        let objId = {
-            id: products[i]._id,
-        }
-
-        let id = []
-        
-        itemLink[i].addEventListener('click', function(){
-            id.push(objId.id)
-            localStorage.setItem("idProduitSelect", JSON.stringify(id))
-        })
-    }   
-} 
+displayProductsQantity()
+ 
 function renderProducts(product){
 
         return `
@@ -52,4 +34,20 @@ function renderProducts(product){
             </div>
         </div>
         `
+}
+function setProductId(products){
+
+    for (var i = 0; i < products.length; i++){
+
+        let itemLink = document.getElementsByClassName('item-link')
+        let objId = {
+            id: products[i]._id,
+        }
+        let id = []
+    
+        itemLink[i].addEventListener('click', function(){
+            id.push(objId.id)
+            localStorage.setItem("idProduitSelect", JSON.stringify(id))
+        })
+    }   
 }

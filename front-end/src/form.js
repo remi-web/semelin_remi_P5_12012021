@@ -1,40 +1,37 @@
 let error = document.getElementById("error-text")
 let inputs = document.commandForm.getElementsByTagName("input")
 
-//----------récupération des ID----------------------//
+//----------récupération des ID-------//
 let products = []
+getProductsId()
 
-if (getItemProducts()){
-    for (var i = 0; i < (getItemProducts()).length; i++ ){
-        products.push(getItemProducts()[i].id)
-    }
+//---------envois de commande---------//
+listenForCommand()
+
+
+let errorText = {
+    email: "Adresses Email différentes",
+    form: "Veuillez remplir le formulaire"
 }
 
-document.commandForm.addEventListener("submit", function(e){
+let messageInputChecking = [
+    "Prenom invalide",
+    "Nom invalide",
+    "Adresse invalide",
+    "Nom de ville invalide"
+]
 
-    //----verification des inputs------//
-    if(!inputsChecking()){
-        e.preventDefault()
-        return
-    }
+let model =//Regex//
+[
+    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //firstName
+    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //lastName
+    /^([0-9a-zA-Z ]){6,20}$/, // address
+    /[a-zA-Zàâäéèêëïîôöùûüç']/, // city
+    /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/, // email
+    /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/
+]
 
-    //------envois au serveur------------//
-    else{
-        contact = {
-            firstName: document.commandForm.firstName.value,
-            lastName: document.commandForm.lastName.value,
-            address: document.commandForm.adress.value,
-            city: document.commandForm.city.value,
-            email: document.commandForm.email.value,
-        }
-    
-        const objCommand = {contact,products}
-        postCommand(objCommand)
-        e.preventDefault()
-    }
-})
-
-function inputsChecking(){
+function checkInputs(){
     
     for ( var i = 0; i < inputs.length; i++){
         //-----test si formulaire complété---//
@@ -57,8 +54,42 @@ function inputsChecking(){
         return true
     }
 }
+function command(e){
+    
+    contact = {
+        firstName: document.commandForm.firstName.value,
+        lastName: document.commandForm.lastName.value,
+        address: document.commandForm.adress.value,
+        city: document.commandForm.city.value,
+        email: document.commandForm.email.value,
+    }
+    const objCommand = {contact,products}
+    sendCommand(objCommand)
+    e.preventDefault()
+}
+function getProductsId(){
 
-function postCommand(objCommand,e){
+    if (getItemProducts()){
+        for (var i = 0; i < (getItemProducts()).length; i++ ){
+            products.push(getItemProducts()[i].id)
+        }
+    }
+}
+function listenForCommand(){
+
+    document.commandForm.addEventListener("submit", function(e){
+        //----verification des inputs------//
+        if(!checkInputs()){
+            e.preventDefault()
+            return
+        }
+        //------envois au serveur------------//
+        else{
+            command(e)
+        }
+    })
+}
+function sendCommand(objCommand){
 
     fetch( "http://localhost:3000/api/cameras/order",{
         method: "POST",
@@ -87,23 +118,3 @@ function postCommand(objCommand,e){
         }
     )
 }
-let model =//Regex//
-[
-    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //firstName
-    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //lastName
-    /^([0-9a-zA-Z ]){6,20}$/, // address
-    /[a-zA-Zàâäéèêëïîôöùûüç']/, // city
-    /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/, // email
-    /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/
-]
-let messageInputChecking = [
-    "Prenom invalide",
-    "Nom invalide",
-    "Adresse invalide",
-    "Nom de ville invalide"
-]
-let errorText = {
-    email: "Adresses Email différentes",
-    form: "Veuillez remplir le formulaire"
-}
-

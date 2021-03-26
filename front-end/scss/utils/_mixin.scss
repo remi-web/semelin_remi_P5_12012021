@@ -13,3 +13,6 @@
     display: flex;
     justify-content: flex-end;
 }
+@mixin box-shadow{
+    box-shadow: 6px 3px 12px 1px grey;
+}

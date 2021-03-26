@@ -1,5 +1,6 @@
 main{
     padding-bottom: 15%;
+    position: relative;
 
     .item-link{
         text-decoration: none;
@@ -43,12 +44,11 @@ main{
     }
     
     #camera{
-        position: relative;
 
         form{ 
             position: absolute;
             right: 43%;
-            top: 8%;
+            top: 5%;
         }
 
         #button{
@@ -77,8 +77,13 @@ main{
         }
 
         #camera{
+
+            .camera-name-description{
+                position: relative;
+            }
+
             form{
-                top: 47%;
+                top: 10%;
                 right: 50%;
             }
         }
@@ -87,21 +92,22 @@ main{
 
 @media (min-width: 200px) and (max-width: 700px){
     main{
-        
+        #camera{
+            
+            .camera-name-description{
+                position: relative;
+            }
+            form{
+                position: absolute;
+                top: 8%;
+                left: 80%
+            }
+        }
         .item-link{
             flex-direction: column;
 
             #image{
                 width: 100%;
-                //height: 20%;
-            }
-        }
-
-        #camera{
-
-            form{
-                top: 40%;
-                right: 20%;
             }
         }
     }

@@ -5,13 +5,12 @@
         @include flex-columm;
 
         &::before{
-            content: url("../../maquette/Image Texture bois 100.png");
+            content: "";
+            @include wood-background;
             width: 100%;
-            background-color: #efd6bc;
             position: absolute;
             z-index: -1;
             height: 100px;
-            overflow-x: hidden;
         }
 
         h3{

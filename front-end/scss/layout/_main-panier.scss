@@ -16,7 +16,7 @@ main{
         }
     }
     
-    .price{
+    .price-cart-product{
         position: absolute;
         right: 20%;
         font-family: AmericanTypewriter;
@@ -34,11 +34,9 @@ main{
         width: 30%;
         text-overflow: ellipsis;
         white-space: nowrap;
-        overflow: hidden;
-
-
-        
+        overflow: hidden;        
     }
+
     .button-delete{
         position: absolute;
         right: 13%;
@@ -47,23 +45,38 @@ main{
         font-size: 0.6em ;
         margin-top: 1%;
     }
+
+    #empty-button{
+        margin-left: 80%;
+        margin-bottom: 5%;
+    }
+
     #form-command{
         width: 15%;
         margin-left: 75%;
+        background-color: transparent;
+        @include box-shadow;
+    
 
         form{
+
             input{
-            width: 100%;
+            width: 96.5%;
+            height: 25px;
+            margin-bottom: 2%;
             }
+
             #commander{
-                    margin-top: 2%;
-                    padding: 1%;
-                    align-items: center;
-                    width: 105%;
-                }
+                margin-top: 4%;
+                padding: 1%;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+            }
         }
     }
 }
+
 #total{
     margin-left: 78%;
     font-family: RobotoMono;
@@ -101,25 +114,31 @@ main{
 
         .item-link{
             margin-bottom: 10%;
-
+            
                 .image{
-                    width: 30%;
+                    width: 20%;
                 }
                 .name{
                     left: 35%;
-                    font-size: 0.7em;
+                    font-size: 0.5em;
                     top: 5%;
                 }
-                .button-delete{
-                    width: 20%;
-                    left: 100%;
-                    top: 7%;
-                    
-                }
-                .price{
-                    
+                
+                .price-cart-product{
                     font-size: 0.7em;
+                    left: 50%;
                 }
+        }
+
+        .button-delete{
+            width: 15%;
+        }
+
+        #empty-button{
+            margin-left: 60%;
+            width: 30%;
+            font-size: 0.7em;
+            margin-bottom: 20%;
         }
 
         #total{

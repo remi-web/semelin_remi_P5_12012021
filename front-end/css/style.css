@@ -412,6 +412,19 @@ main .item-link #image {
   margin-right: 11%;
   width: 40%;
   box-shadow: 6px 3px 12px 1px grey;
+  z-index: 1;
+}
+main .item-link #image:hover {
+  animation: effect 600ms;
+  animation-fill-mode: forwards;
+}
+@keyframes effect {
+  0% {
+    transform: 0;
+  }
+  100% {
+    transform: scale(1.8);
+  }
 }
 main .item-link #description {
   display: flex;

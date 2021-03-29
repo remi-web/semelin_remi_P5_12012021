@@ -12,7 +12,7 @@ function displayProductsQantity(){
         articleNumber.textContent = ""
     }
 }
-function money(price){
+function convertMoney(price){
     return price / 1000 + "0"+ "€"
 }
 function setItemProducts(productsStorage){

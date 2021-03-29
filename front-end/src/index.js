@@ -29,7 +29,7 @@ function renderProducts(product){
                         <p class="name">${product.name}</p>
                         <p class="description">${product.description}</p>
                     </div>
-                    <p class="price">${money(product.price)}</p>
+                    <p class="price">${convertMoney(product.price)}</p>
                 </a>
             </div>
         </div>

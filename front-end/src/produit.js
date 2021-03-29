@@ -83,26 +83,22 @@ function pushProductInCart(productsStorage,product){
 function renderProduct(product){
     return `
     <div id="camera">
-        <a class="item-link" href="produit.html">
+        <div class="item-link" href="produit.html">
             <img id="image" src=${product.imageUrl}>
             <div class="camera-name-description">
                 <form>
                     <label for="optic-choice"></label>
                     <select id="optic-choose" name="optic-choose">
                         <option value= "number" id="optic1">${product.lenses[0]}</option>
-                        <option vale= "number" id="optic2">${product.lenses[1]}</option>
+                        <option value= "number" id="optic2">${product.lenses[1]}</option>
                     </select>
                 </form>
                 <p id="name">${product.name}</p>
                 <p id="description">${product.description}</p>
-                <p id="price">${money(product.price)}</p>
+                <p id="price">${convertMoney(product.price)}</p>
             </div>
-        </a>
+        </div>
         <button id="button">Ajouter au panier</button>
     </div>`
 }
-
-
-
-
 

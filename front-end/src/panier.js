@@ -52,7 +52,7 @@ function displayProductsInCart (){
     })
 }
 function displayTotalPrice(totalPrice){
-    document.getElementById("total-price-number").textContent = money(totalPrice)
+    document.getElementById("total-price-number").textContent = convertMoney(totalPrice)
 }
 function listenForDeleteProduct (){
 
@@ -90,7 +90,7 @@ function renderCartProducts(cartProduct){
         <section class="item-link">
             <img class="image" src=${cartProduct.image}>
             <p class="name">${cartProduct.name}</p>
-            <p class="price-cart-product">${money(cartProduct.price)}</p>
+            <p class="price-cart-product">${convertMoney(cartProduct.price)}</p>
             <button class="button-delete">Retirer </button>
         </section>
         `
@@ -101,7 +101,7 @@ function renderCartProducts(cartProduct){
             <img class="image" src=${cartProduct.image}>
             <p class="name">${cartProduct.name}</p>
             <p class="description">${cartProduct.description}</p>
-            <p class="price-cart-product">${money(cartProduct.price)}</p>
+            <p class="price-cart-product">${convertMoney(cartProduct.price)}</p>
             <button class="button-delete">Retirer </button>
         </section>
         `

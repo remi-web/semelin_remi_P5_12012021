@@ -1,33 +1,17 @@
 let cartProducts = getItemProducts()
+let totalPrice = document.getElementById("total-price-number")
 
 if(cartProducts){
     displayProductsInCart()
     listenForDeleteProduct()
     calculateTotalPrice(cartProducts)
     displayProductsQantity()
+    totalPrice.textContent = displayTotalPrice()
 }
 
 listenForEmptyCaddy()
 displayForEmptyCaddy()
 
-
-function calculateTotalPrice (cartProducts){
-    
-        //-------tableau des prix depuis le localstorage--//
-        let arrayPrices = []
-        for (var i = 0; i < cartProducts.length; i++){
-            let productPrice = cartProducts[i].price
-            arrayPrices.push(productPrice)
-        }
-        //--------------addition du total--------------//
-        const reducer = (accumalator, currentValue) => accumalator + currentValue
-        const resultTotalPrice = arrayPrices.reduce(reducer,0)
-
-        //--------arrondit le résultat à 2 chiffres après la virgule------//
-        let totalPrice = (resultTotalPrice.toFixed(2))
-        //-------affiche le total------------------------//
-        displayTotalPrice(totalPrice)
-}
 function deleteProduct(objId){
 
     let idDelete = []
@@ -50,9 +34,6 @@ function displayProductsInCart (){
     cartProducts.forEach(cartProduct => {
         document.querySelector('main').insertAdjacentHTML("afterbegin",renderCartProducts(cartProduct))
     })
-}
-function displayTotalPrice(totalPrice){
-    document.getElementById("total-price-number").textContent = convertMoney(totalPrice)
 }
 function listenForDeleteProduct (){
 
@@ -107,5 +88,4 @@ function renderCartProducts(cartProduct){
         `
     }
 }
-
 

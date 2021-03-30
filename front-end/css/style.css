@@ -323,8 +323,6 @@ main #empty-button {
 main #form-command {
   width: 15%;
   margin-left: 75%;
-  background-color: transparent;
-  box-shadow: 6px 3px 12px 1px grey;
 }
 main #form-command form input {
   width: 96.5%;
@@ -335,7 +333,7 @@ main #form-command form #commander {
   margin-top: 4%;
   padding: 1%;
   align-items: center;
-  width: 100%;
+  width: 102%;
   height: 40px;
 }
 
@@ -413,10 +411,12 @@ main .item-link #image {
   width: 40%;
   box-shadow: 6px 3px 12px 1px grey;
   z-index: 1;
+  transform: scale(1);
+  transition-duration: 600ms;
 }
 main .item-link #image:hover {
-  animation: effect 600ms;
-  animation-fill-mode: forwards;
+  transform: scale(1.5);
+  transition-duration: 600ms;
 }
 @keyframes effect {
   0% {
@@ -454,18 +454,23 @@ main .item-link #name {
 }
 main #camera form {
   position: absolute;
-  right: 43%;
+  right: 37%;
   top: 5%;
 }
 main #camera #button {
   position: absolute;
   right: 12%;
-  bottom: 5%;
+  bottom: 55%;
   height: 50px;
   font-family: AmericanTypewriter;
   border-radius: 5%;
   border-style: none;
-  box-shadow: 2px 2px 10px 1px grey;
+  box-shadow: 2px 2px 7px 1px grey;
+  transition-duration: 300ms;
+}
+main #camera #button:hover {
+  box-shadow: 4px 4px 15px 4px grey;
+  transition-duration: 300ms;
 }
 
 @media (min-width: 700px) and (max-width: 1200px) {

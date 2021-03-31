@@ -20,6 +20,7 @@ function deleteProduct(objId){
     setItemProducts(cartProductsFilter)
     document.location.reload()
 }
+
 function displayForEmptyCaddy (){
 
     if ((! getItemProducts()) || (getItemProducts()).length === 0){
@@ -29,12 +30,14 @@ function displayForEmptyCaddy (){
         document.getElementById("empty-button").style.display = "none"
     }
 }
+
 function displayProductsInCart (){
 
     cartProducts.forEach(cartProduct => {
         document.querySelector('main').insertAdjacentHTML("afterbegin",renderCartProducts(cartProduct))
     })
 }
+
 function listenForDeleteProduct (){
 
     cartProductsReverse = cartProducts.reverse()
@@ -54,6 +57,7 @@ function listenForDeleteProduct (){
         })  
     }
 }
+
 function listenForEmptyCaddy(){
 
     let buttonEmptyCaddy = document.getElementById("empty-button")
@@ -64,6 +68,7 @@ function listenForEmptyCaddy(){
         }
     })
 }
+
 function renderCartProducts(cartProduct){
 
     if (window.matchMedia("(max-width: 768px)").matches) {

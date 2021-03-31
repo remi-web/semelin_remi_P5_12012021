@@ -54,9 +54,6 @@ main{
     #form-command{
         width: 15%;
         margin-left: 75%;
-        //background-color: transparent;
-       // @include box-shadow;
-    
 
         form{
 
@@ -101,10 +98,25 @@ main{
 
         .button-delete{
             margin-top: 1.5%;
+            width: 8%;
         }
 
         #total-price-number{
             font-size: 1.2em;
+        }
+
+        .price-cart-product{
+            right: 30%;
+            margin-right: 10%;
+
+        }
+        #empty-button{
+            margin-left: 74%;
+        }
+
+        #form-command{
+            width: 25%;
+            margin-left:70%;
         }
     }
 }
@@ -143,11 +155,11 @@ main{
 
         #total{
             margin-left:65%;
-            font-size: 0.8em;
+            font-size: 1em;
         }
 
         #form-command{
-            width: 30%;
+            width: 40%;
             margin-left: 53%;
             
             form{
@@ -157,5 +169,13 @@ main{
     }
 }
 
+@media (max-width: 1200px){
+    main{
+
+        .price-cart-product{
+            left: 70%;
+        }
+    }
+}
 
 

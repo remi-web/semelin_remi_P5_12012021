@@ -6,7 +6,7 @@ fetch( "http://localhost:3000/api/cameras/")
         })
         .then ((products) => {
             products.forEach(product => {
-                document.querySelector("main").innerHTML += renderProducts(product)
+                document.querySelector("main").innerHTML += renderProduct(product)
             })
             setProductId(products)
 
@@ -18,23 +18,24 @@ fetch( "http://localhost:3000/api/cameras/")
        
 displayProductsQantity()
  
-function renderProducts(product){
+function renderProduct(product){
 
-        return `
-        <div class="camera-link">
-            <div class="camera">
-                <a class="item-link" href="html/produit.html">
-                    <img class="image"src=${product.imageUrl}>
-                    <div class="camera-name-description">
-                        <p class="name">${product.name}</p>
-                        <p class="description">${product.description}</p>
-                    </div>
-                    <p class="price">${convertMoney(product.price)}</p>
-                </a>
-            </div>
+    return `
+    <div class="camera-link">
+        <div class="camera">
+            <a class="item-link" href="html/produit.html">
+                <img class="image"src=${product.imageUrl}>
+                <div class="camera-name-description">
+                    <p class="name">${product.name}</p>
+                    <p class="description">${product.description}</p>
+                </div>
+                <p class="price">${convertMoney(product.price)}</p>
+            </a>
         </div>
-        `
+    </div>
+    `
 }
+
 function setProductId(products){
 
     for (var i = 0; i < products.length; i++){

@@ -1,9 +1,19 @@
 main{
     margin-top: 10%;
 
-    .camera-link{
-        position: relative;
+       //-----effet de fade in----//
+       @keyframes fadein{
+        from{ opacity: 0; transform: translateY(0);}
+        to{ opacity: 1; transform: translateY(-10px)}
+    }
 
+    .camera-link{
+        opacity: 0;
+        animation: fadein 600ms 200ms forwards
+    }
+
+    .camera-link{
+        
         .camera{
             margin-bottom: 10%;
 

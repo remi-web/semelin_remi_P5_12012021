@@ -28,15 +28,15 @@ header {
 #logo {
   margin-left: 5%;
 }
-#logo h1 {
+#logo .orinoco {
   font-family: RobotoMono;
   margin-bottom: 0%;
   font-size: 2.3em;
   margin-top: 0%;
 }
-#logo h2 {
+#logo p {
   margin-top: 0%;
-  font-size: 0.8em;
+  font-size: 0.4em;
 }
 
 #header-nav ul {
@@ -80,10 +80,10 @@ header {
     margin-right: 7%;
   }
   header #header-nav ul li {
-    width: 20%;
+    width: 30%;
   }
   header #header-nav ul li #article-number {
-    font-size: 0.8em;
+    font-size: 1.3em;
   }
 }
 #baner-txt {
@@ -102,7 +102,7 @@ header {
   z-index: -1;
   height: 100px;
 }
-#baner-txt h3 {
+#baner-txt h1 {
   margin: auto;
   font-family: AppleChancery;
   font-size: 1.5em;
@@ -117,7 +117,7 @@ header {
   #baner-txt {
     text-align: center;
   }
-  #baner-txt h3 {
+  #baner-txt h1 {
     font-size: inherit;
     width: 80%;
   }
@@ -136,8 +136,19 @@ body {
 main {
   margin-top: 10%;
 }
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
 main .camera-link {
-  position: relative;
+  opacity: 0;
+  animation: fadein 600ms 200ms forwards;
 }
 main .camera-link .camera {
   margin-bottom: 10%;
@@ -224,14 +235,16 @@ footer {
   align-items: center;
   justify-content: center;
 }
-footer h3 {
+footer .orinoco {
   margin-bottom: 0%;
-  font-size: 1.7em;
+  font-size: 2.3em;
   margin-top: 0%;
+  font-family: RobotoMono;
 }
-footer h4 {
+footer p {
   margin-top: 0%;
-  font-size: 0.7em;
+  font-size: 0.5em;
+  font-family: RobotoMono;
 }
 footer li {
   list-style: none;
@@ -242,7 +255,7 @@ footer #contact {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  font-size: 2em;
   padding-bottom: 5%;
 }
 footer p {
@@ -275,6 +288,14 @@ footer p {
   width: 80%;
 }
 
+@media (max-width: 667px) {
+  footer #footer-logo .orinoco {
+    font-size: 1em;
+  }
+  footer #contact {
+    font-size: 0.5em;
+  }
+}
 main {
   padding-bottom: 30%;
   position: relative;
@@ -357,9 +378,21 @@ main #form-command form #commander {
   }
   main .button-delete {
     margin-top: 1.5%;
+    width: 8%;
   }
   main #total-price-number {
     font-size: 1.2em;
+  }
+  main .price-cart-product {
+    right: 30%;
+    margin-right: 10%;
+  }
+  main #empty-button {
+    margin-left: 74%;
+  }
+  main #form-command {
+    width: 25%;
+    margin-left: 70%;
   }
 }
 @media (min-width: 375px) and (max-width: 700px) {
@@ -389,78 +422,109 @@ main #form-command form #commander {
   }
   main #total {
     margin-left: 65%;
-    font-size: 0.8em;
+    font-size: 1em;
   }
   main #form-command {
-    width: 30%;
+    width: 40%;
     margin-left: 53%;
   }
   main #form-command form {
     width: 100%;
   }
 }
+@media (max-width: 1200px) {
+  main .price-cart-product {
+    left: 70%;
+  }
+}
 main {
   padding-bottom: 15%;
   position: relative;
 }
-main .item-link {
+main #item-link {
   text-decoration: none;
+  padding-left: 5%;
+  display: flex;
 }
-main .item-link #image {
+@keyframes txt-effect {
+  from {
+    transform: translateY(-300px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+main #item-link .camera-name-description {
+  animation: txt-effect 600ms;
+}
+main #item-link #item-image {
   margin-right: 11%;
   width: 40%;
+  height: 300px;
   box-shadow: 6px 3px 12px 1px grey;
   z-index: 1;
+  animation: image-effect 600ms;
   transform: scale(1);
   transition-duration: 600ms;
 }
-main .item-link #image:hover {
+main #item-link #item-image:hover {
   transform: scale(1.5);
   transition-duration: 600ms;
 }
-@keyframes effect {
-  0% {
-    transform: 0;
+@keyframes image-effect {
+  from {
+    transform: translateX(-100px);
   }
-  100% {
-    transform: scale(1.8);
+  to {
+    transform: translateX(0);
   }
 }
-main .item-link #description {
+main #item-link #description {
   display: flex;
   flex-wrap: wrap;
   font-family: RobotoMono;
   font-size: 1.3em;
+  width: 80%;
   color: gray;
 }
-main .item-link #price {
+main #item-link #price {
   margin-right: 10%;
-  margin-top: 10%;
+  margin-top: 17%;
   display: flex;
   flex-direction: column-reverse;
   font-family: AmericanTypewriter;
   font-size: 1.2em;
   color: black;
 }
-main .item-link a {
+main #item-link a {
   text-decoration: none;
 }
-main .item-link #name {
+main #item-link #name {
   font-family: AmericanTypewriter;
   font-weight: lighter;
   font-size: 1.3em;
   color: black;
   margin-bottom: 5%;
 }
+@keyframes form-display {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 main #camera form {
   position: absolute;
-  right: 37%;
+  right: 30%;
   top: 5%;
+  opacity: 0;
+  animation: form-display 600ms 800ms forwards;
 }
 main #camera #button {
   position: absolute;
   right: 12%;
-  bottom: 55%;
+  bottom: 43%;
   height: 50px;
   font-family: AmericanTypewriter;
   border-radius: 5%;
@@ -474,10 +538,13 @@ main #camera #button:hover {
 }
 
 @media (min-width: 700px) and (max-width: 1200px) {
-  main .item-link {
+  main #item-link {
     flex-direction: column;
   }
-  main .item-link #image {
+  main #item-link #price {
+    margin-top: 10%;
+  }
+  main #item-link #item-image {
     width: 55%;
     height: 20%;
   }
@@ -488,6 +555,9 @@ main #camera #button:hover {
     top: 10%;
     right: 50%;
   }
+  main #camera #button {
+    bottom: 20%;
+  }
 }
 @media (min-width: 200px) and (max-width: 700px) {
   main #camera .camera-name-description {
@@ -496,13 +566,22 @@ main #camera #button:hover {
   main #camera form {
     position: absolute;
     top: 8%;
-    left: 80%;
+    left: 65%;
   }
-  main .item-link {
+  main #camera #description {
+    font-size: 1em;
+    width: 90%;
+  }
+  main #camera #button {
+    bottom: 15%;
+  }
+  main #item-link {
     flex-direction: column;
   }
-  main .item-link #image {
-    width: 100%;
+  main #item-link #item-image {
+    width: 90%;
+    height: 200px;
+    margin-bottom: 10%;
   }
 }
 main #order-message {

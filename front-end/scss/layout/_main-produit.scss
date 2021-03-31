@@ -2,15 +2,27 @@ main{
     padding-bottom: 15%;
     position: relative;
 
-    .item-link{
+    #item-link{
         text-decoration: none;
+        padding-left: 5%;
+        display: flex;
 
+        @keyframes txt-effect {
+            from { transform: translateY(-300px)}
+            to { transform: translateY(0);}
+            
+        }
+        .camera-name-description{
+            animation: txt-effect 600ms;
+        }
       
-        #image{
+        #item-image{
             margin-right: 11%;
             width: 40%;
+            height: 300px;
             box-shadow: 6px 3px 12px 1px grey;
             z-index: 1;
+            animation: image-effect 600ms;
             transform: scale(1);
             transition-duration: 600ms;
             
@@ -19,22 +31,22 @@ main{
                 transition-duration: 600ms;
             }
         }
-       
-        @keyframes effect {
-            0% {transform: 0;}
-            100%{transform: scale(1.8);}
+        @keyframes image-effect {
+            from { transform: translateX(-100px); }
+            to { transform: translateX(0);}
         }
         #description{
             display: flex;
             flex-wrap: wrap;
             font-family: RobotoMono;
             font-size: 1.3em;
+            width: 80%;
             color: gray
         }
 
         #price{
             margin-right: 10%;
-            margin-top: 10%;
+            margin-top: 17%;
             display: flex;
             flex-direction: column-reverse;
             font-family: AmericanTypewriter;
@@ -54,19 +66,24 @@ main{
             margin-bottom: 5%;
         }
     }
-    
+    @keyframes form-display {
+        from { opacity: 0};
+        to {opacity: 1}
+    }
     #camera{
 
         form{ 
             position: absolute;
-            right: 37%;
+            right: 30%;
             top: 5%;
+            opacity: 0;
+            animation: form-display 600ms 800ms forwards;
         }
 
         #button{
             position: absolute;
             right: 12%;
-            bottom: 55%;
+            bottom: 43%;
             height: 50px;
             font-family: AmericanTypewriter;
             border-radius: 5%;
@@ -77,19 +94,21 @@ main{
             &:hover{
                 box-shadow: 4px 4px 15px 4px grey;
                 transition-duration: 300ms;
-
             }
-
         }
     }
 }
 
 @media (min-width: 700px) and (max-width: 1200px){
     main{
-        .item-link{
+        #item-link{
             flex-direction: column;
 
-            #image{
+            #price{
+                margin-top: 10%;
+            }
+
+            #item-image{
                 width: 55%;
                 height: 20%;
             }
@@ -105,6 +124,10 @@ main{
                 top: 10%;
                 right: 50%;
             }
+
+            #button{
+                bottom: 20%;
+            }
         }
     }
 }
@@ -119,14 +142,25 @@ main{
             form{
                 position: absolute;
                 top: 8%;
-                left: 80%
+                left: 65%
+            }
+
+            #description{
+                font-size: 1em;
+                width: 90%;
+            }
+
+            #button{
+                bottom: 15%;
             }
         }
-        .item-link{
+        #item-link{
             flex-direction: column;
 
-            #image{
-                width: 100%;
+            #item-image{
+                width: 90%;
+                height: 200px;
+                margin-bottom: 10%;
             }
         }
     }

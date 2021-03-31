@@ -23,10 +23,10 @@ let messageInputChecking = [
 
 let model =//Regex//
 [
-    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //firstName
-    /^[a-zA-Zàâäéèêëïîôöùûüç]/, //lastName
+    /^([a-zA-Zàâäéèêëïîôöùûüç]){2,20}$/, //firstName
+    /^([a-zA-Zàâäéèêëïîôöùûüç]){2,20}$/, //lastName
     /^([0-9a-zA-Z ]){6,20}$/, // address
-    /[a-zA-Zàâäéèêëïîôöùûüç']/, // city
+    /^([a-zA-Zàâäéèêëïîôöùûüç]){6,20}$/, // city
     /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/, // email
     /^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/
 ]
@@ -43,7 +43,7 @@ function checkInputs(){
         if(!(inputs[i].value).match(model[i])){
             error.textContent = messageInputChecking[i]
             return false
-            }
+        }
     }
     //--------test de confirmation d'email---//
     if (document.getElementById("email").value != document.getElementById("email2").value){
@@ -54,6 +54,7 @@ function checkInputs(){
         return true
     }
 }
+
 function command(e){
     
     contact = {
@@ -67,6 +68,7 @@ function command(e){
     sendCommand(objCommand)
     e.preventDefault()
 }
+
 function getProductsId(){
 
     if (getItemProducts()){
@@ -75,6 +77,7 @@ function getProductsId(){
         }
     }
 }
+
 function listenForCommand(){
 
     document.commandForm.addEventListener("submit", function(e){
@@ -89,6 +92,7 @@ function listenForCommand(){
         }
     })
 }
+
 function sendCommand(objCommand){
 
     fetch( "http://localhost:3000/api/cameras/order",{

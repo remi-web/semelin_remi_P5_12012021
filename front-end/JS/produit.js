@@ -37,6 +37,7 @@ function addProductIncart(product){
         }
     })
 }
+
 function displayPopupConfirmation(product){
     
     if (window.confirm(`${product.name} a bien été ajouté au PANIER
@@ -47,6 +48,7 @@ function displayPopupConfirmation(product){
         window.location.href = "../index.html";
     }
 }
+
 function getProductId(){
 
     if(!localStorage.getItem("idProduitSelect")){
@@ -55,6 +57,7 @@ function getProductId(){
     }
     return JSON.parse(localStorage.getItem("idProduitSelect"))
 }
+
 function hasProductInCart(productsStorage){
     
     productsInCartsFilter = (productsStorage.filter((tabF) => tabF.id == getProductId()).length > 0 )
@@ -67,6 +70,7 @@ function hasProductInCart(productsStorage){
         return false
     }
 }
+
 function pushProductInCart(productsStorage,product){
 
     productsStorage.push({
@@ -80,11 +84,13 @@ function pushProductInCart(productsStorage,product){
     setItemProducts(productsStorage)
     displayPopupConfirmation(product)
 }
+
 function renderProduct(product){
+
     return `
     <div id="camera">
-        <div class="item-link" href="produit.html">
-            <img id="image" src=${product.imageUrl}>
+        <div id="item-link" href="produit.html">
+            <img id="item-image" src=${product.imageUrl}>
             <div class="camera-name-description">
                 <form>
                     <label for="optic-choice"></label>

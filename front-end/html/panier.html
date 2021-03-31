@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +8,37 @@
         <link rel="stylesheet" href="../css/style.css"/>
         <title>orinoco-photography</title>
     </head>
+
     <body>
         <header>
             <div id="logo">
-                <h1>Orinoco
-                    <h2>Photography</h2>
-                </h1>
+                <div class="orinoco"> Orinoco
+                    <p>Photography</p>
+                </div>
             </div>
             <nav id="header-nav">
                 <ul>
                     <li>
-                        <a href="../index.html"><img id="home" src="../images/icons/home.svg"></a>
+                        <a href="../index.html"><img id="home" alt="lien vers page d'acceuil" src="../images/icons/home.svg"></a>
                     </li>
                     <li>
-                        <a href="profil.html"><img id="user" src="../images/icons/profil.svg"></a>
+                        <a href="profil.html"><img id="user" alt="icon utilisateur" src="../images/icons/profil.svg"></a>
                     </li>
                     <li>
-                        <a id="caddy" href="panier.html"><img id="caddy" src="../images/icons/panier.svg">
+                        <a id="caddy-link" href="panier.html"><img id="caddy" alt="lien vers page panier" src="../images/icons/panier.svg">
                             <p id="article-number"></p>
                         </a>
                     </li>
                 </ul>
             </nav>
         </header>
+
         <div id="baner">
             <div id="baner-txt">
                 <h3 id = "panier-title">Votre Panier</h3>
             </div>
         </div>
+
         <main>
             <button id="empty-button">Vider le panier</button>
             <div id= "total">Total<p id="total-price-number"></p></div>
@@ -51,18 +55,19 @@
                 </form>
             </div>
         </main>
+
         <footer>
-            <section id="footer-logo">
-                <h3>Orinoco
-                    <h4>Photography</h4>
-                </h3>
-            </section>
+            <div id="footer-logo">
+                <div class="orinoco">Orinoco
+                    <p>Photography</p>
+                </div>
+            </div>
 
             <nav id="footer-nav">
                 <ul id="footer-ul">
-                    <li id="footer-li"><a href="facebook.com"><img id="footer-icon-fb" src = "../../front-end/images/icons/facebook.svg" alt="lien vers page facebook"></a></li>
-                    <li><a href="instagram.com"><img class="footer-icon" src = "../../front-end/images/icons/instagram.svg" alt="lien vers page instagram"></a></li>
-                    <li><a href="twiter.com"><img class="footer-icon" src="../../front-end/images/icons/twiter.svg" alt="lien vers page twiter"></a></li>
+                    <li id="footer-li"><a href="facebook.com"><img id="footer-icon-fb" alt="lein vers page facebook" src = "../../front-end/images/icons/facebook.svg"></a></li>
+                    <li><a href="instagram.com"><img class="footer-icon" alt="lien vers page instsagram" src = "../../front-end/images/icons/instagram.svg"></a></li>
+                    <li><a href="twiter.com"><img class="footer-icon" alt="lien vers page twiter" src="../../front-end/images/icons/twiter.svg"></a></li>
                 </ul>
             </nav>
             <div id="contact">
@@ -70,8 +75,10 @@
                 <p>123 nom de rue, Ville 12345</p>
             </div>            
         </footer>
-        <script type="text/javascript" src="../JS/utils.js"></script>
-        <script type="text/javascript" src="../JS/panier.js"></script>
-        <script type="text/javascript" src="../JS/form.js"></script>
+
+        <script  src="../js/utils.js"></script>
+        <script  src="../js/panier.js"></script>
+        <script  src="../js/form.js"></script>
+        
     </body>
 </html>

@@ -159,6 +159,7 @@ main .camera-link .camera .item-link {
 main .camera-link .camera .item-link .image {
   margin-right: 3%;
   width: 20%;
+  height: intrinsic;
   box-shadow: 6px 3px 12px 1px grey;
 }
 main .camera-link .camera .item-link .camera-name-description {
@@ -310,6 +311,7 @@ main .item-link .image {
   position: relative;
   margin-right: 8%;
   width: 10%;
+  height: intrinsic;
 }
 main .price-cart-product {
   position: absolute;
@@ -446,16 +448,9 @@ main #item-link {
   padding-left: 5%;
   display: flex;
 }
-@keyframes txt-effect {
-  from {
-    transform: translateY(-300px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
 main #item-link .camera-name-description {
-  animation: txt-effect 600ms;
+  -webkit-animation: txt-effect 400ms cubic-bezier(0.02, 0.53, 0.97, 1.02);
+  animation: txt-effect 400ms cubic-bezier(0.02, 0.53, 0.97, 1.02);
 }
 main #item-link #item-image {
   margin-right: 11%;
@@ -463,21 +458,14 @@ main #item-link #item-image {
   height: 300px;
   box-shadow: 6px 3px 12px 1px grey;
   z-index: 1;
-  animation: image-effect 600ms;
+  -webkit-animation: image-translate 700ms cubic-bezier(0.19, 0.81, 0.96, 1.05);
+  animation: image-translate 700ms cubic-bezier(0.19, 0.81, 0.96, 1.05);
   transform: scale(1);
-  transition-duration: 600ms;
+  transition-duration: 1s;
 }
 main #item-link #item-image:hover {
   transform: scale(1.5);
   transition-duration: 600ms;
-}
-@keyframes image-effect {
-  from {
-    transform: translateX(-100px);
-  }
-  to {
-    transform: translateX(0);
-  }
 }
 main #item-link #description {
   display: flex;
@@ -506,20 +494,13 @@ main #item-link #name {
   color: black;
   margin-bottom: 5%;
 }
-@keyframes form-display {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 main #camera form {
   position: absolute;
   right: 30%;
   top: 5%;
   opacity: 0;
-  animation: form-display 600ms 800ms forwards;
+  -webkit-animation: form-display 400ms 600ms forwards;
+  animation: form-display 400ms 600ms forwards;
 }
 main #camera #button {
   position: absolute;
@@ -531,6 +512,8 @@ main #camera #button {
   border-style: none;
   box-shadow: 2px 2px 7px 1px grey;
   transition-duration: 300ms;
+  -webkit-animation: button-display 1s;
+  animation: button-display 1s;
 }
 main #camera #button:hover {
   box-shadow: 4px 4px 15px 4px grey;
@@ -612,6 +595,50 @@ main #order-message #command-order {
   main #order-message p {
     font-size: 0.9em;
     text-align: center;
+  }
+}
+@keyframes form-display {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes image-translate {
+  from {
+    transform: translateX(-400px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes txt-effect {
+  from {
+    transform: translateY(-300px);
+    z-index: -1;
+  }
+  to {
+    transform: translateY(0);
+    z-index: 1;
+  }
+}
+@keyframes button-display {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes baner-img {
+  from {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(0);
+    transform-origin: left;
   }
 }
 

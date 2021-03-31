@@ -7,13 +7,9 @@ main{
         padding-left: 5%;
         display: flex;
 
-        @keyframes txt-effect {
-            from { transform: translateY(-300px)}
-            to { transform: translateY(0);}
-            
-        }
         .camera-name-description{
-            animation: txt-effect 600ms;
+            -webkit-animation: txt-effect 400ms cubic-bezier(.02,.53,.97,1.02);
+                    animation: txt-effect 400ms cubic-bezier(.02,.53,.97,1.02);
         }
       
         #item-image{
@@ -22,19 +18,17 @@ main{
             height: 300px;
             box-shadow: 6px 3px 12px 1px grey;
             z-index: 1;
-            animation: image-effect 600ms;
+            -webkit-animation: image-translate 700ms cubic-bezier(.19,.81,.96,1.05);
+                    animation: image-translate 700ms cubic-bezier(.19,.81,.96,1.05);
             transform: scale(1);
-            transition-duration: 600ms;
+            transition-duration: 1s;
             
             &:hover{
                 transform: scale(1.5);
                 transition-duration: 600ms;
             }
         }
-        @keyframes image-effect {
-            from { transform: translateX(-100px); }
-            to { transform: translateX(0);}
-        }
+        
         #description{
             display: flex;
             flex-wrap: wrap;
@@ -66,10 +60,7 @@ main{
             margin-bottom: 5%;
         }
     }
-    @keyframes form-display {
-        from { opacity: 0};
-        to {opacity: 1}
-    }
+  
     #camera{
 
         form{ 
@@ -77,7 +68,8 @@ main{
             right: 30%;
             top: 5%;
             opacity: 0;
-            animation: form-display 600ms 800ms forwards;
+            -webkit-animation: form-display 400ms 600ms forwards;
+                    animation: form-display 400ms 600ms forwards;
         }
 
         #button{
@@ -90,6 +82,8 @@ main{
             border-style: none;
             box-shadow: 2px 2px 7px 1px grey;
             transition-duration: 300ms;
+            -webkit-animation: button-display 1s;
+                    animation: button-display 1s;
 
             &:hover{
                 box-shadow: 4px 4px 15px 4px grey;
